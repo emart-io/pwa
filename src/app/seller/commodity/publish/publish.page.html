@@ -19,7 +19,7 @@
         *ngFor="let medium of mediumPreviews;let i=index">
         <img *ngIf="medium.image" style="width: 80px;height: 80px;" [src]="medium.image" />
         <video muted autoplay *ngIf="medium.video" style="width: 80px;height: 80px;" [src]="medium.video"></video>
-        <img src="svg/md-close-circle.svg" (click)="remove(i)"
+        <img src="svg/close-circle-sharp.svg" (click)="remove(i)"
           style="height: 20px;width: 20px;position:absolute;top:0;right: 0;display: block;" />
       </div>
     </div>
