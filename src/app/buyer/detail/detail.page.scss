@@ -1,0 +1,18 @@
+.top-header {
+    position: fixed;
+    background: transparent;
+    z-index: 999;
+    width: 100%;
+
+    ion-toolbar {
+        //top: 15px;
+        //--padding-top: 15px;
+        --background: transparent;
+    }
+}
+
+ion-list {
+    ion-item {
+        font-size: small;
+    }
+}

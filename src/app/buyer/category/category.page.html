@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button>
+        <ion-icon name="search"></ion-icon>
+        <ion-input placeholder="9块9包邮" (keyup.enter)="gotoView($event.target.value)"></ion-input>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div
+    style="white-space:nowrap;display:inline-block;width: 25%;height: 100%;text-align: center;background-color:#f2f2f2;overflow:auto">
+    <ion-card-content (click)="level1Click(item)" [class.selected]="level1 === item" *ngFor="let item of items">
+      {{item.title}}
+    </ion-card-content>
+  </div>
+  <div style="display:inline-block;width:75%;height: 100%;vertical-align:top;overflow:auto">
+    <ion-card>
+      <ion-item>
+        <ion-label style="font-size: small">当季热门</ion-label>
+        <ion-icon name="menu" slot="end"></ion-icon>
+      </ion-item>
+      <ion-card-content>
+        <div *ngFor="let hot of level1?.hots" style="display:inline-block;width: 25%;text-align: center"
+          (click)="gotoView(hot.name)">
+          <img style="height: 40px;width: auto;margin: 0 auto;" src="assets/{{hot.src}}" />
+          {{hot.name}}
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngFor="let sc of level1?.subCategories | keyvalue" style="box-shadow: none;margin: 0;">
+      <ion-card-header>
+        <ion-card-subtitle (click)="gotoView(sc.key)">{{sc.key}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div *ngFor="let name of sc.value" (click)="gotoView(name)"
+          style="display:inline-block;width: 33%;text-align: center;line-height: 40px;border-style: dotted; border-width: 1px;">
+          {{name}}
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

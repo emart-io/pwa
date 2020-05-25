@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-outline" (click)="back()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{users[commodity.ownerId]?.shopsList[0]?.name?users[commodity.ownerId]?.shopsList[0].name:users[commodity.ownerId]?.name}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let msg of messages">
+    <ion-item *ngIf="msg.from!=user.id" lines="none">
+      <img style="margin-right: 5px;" [src]="users[msg.from]?.icon?users[msg.from].icon:'assets/fruit/banana.png'">
+      <ion-badge class="ion-text-wrap">{{msg.content}}
+        ({{msg.created?.toDate() | date:'MM/dd H:mm'}})
+      </ion-badge>
+    </ion-item>
+    <ion-item *ngIf="msg.from==user.id" lines="none">
+      <ion-badge class="ion-text-wrap right-align" color="success">{{msg.content}}
+        ({{msg.created?.toDate() | date:'MM/dd H:mm'}})
+      </ion-badge>
+      <img style="position: absolute;right: 12px;" [src]="user?.icon?user.icon:'assets/fruit/banana.png'">
+    </ion-item>
+  </div>
+  <div id="msg_bottom"></div>
+</ion-content>
+
+<!-- <ion-footer class="ion-no-padding"> -->
+<ion-item color="primary">
+  <ion-label>消息</ion-label>
+  <ion-input [(ngModel)]="message.content"></ion-input>
+  <ion-button (click)="send()">发送</ion-button>
+</ion-item>
+<!-- </ion-footer> -->

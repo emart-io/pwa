@@ -1,0 +1,16 @@
+{
+  "name": "农村大集",
+  "short_name": "农村大集",
+  "theme_color": "#fafafa",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/?from=homescreen",
+  "icons": [
+    {
+      "src": "assets/icons/daji-144x144.png",
+      "sizes": "72x72 96x96 128x128 144x144 152x152 192x192 384x384 512x512",
+      "type": "image/png"
+    }
+  ]
+}

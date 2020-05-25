@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-title>
+      我的订单
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-slides [options]="slideOpts">
+  <ion-slide *ngFor="let status of statuses" [class.selected]="selectedStatus==status" (click)="listByStatus(status)">
+    {{status}}
+  </ion-slide>
+</ion-slides>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content refreshingSpinner="bubbles"></ion-refresher-content>
+  </ion-refresher>
+  <div *ngFor="let order of orders" style="margin: 10px;">
+    <div (click)="confirmReceive(order)">
+      <div style="width: 50%;text-align: left;" class="ion-text-capitalize">
+        {{users[order.snapshot?.ownerId]?.shopsList[0]?.name?users[order.snapshot?.ownerId]?.shopsList[0].name:users[order.snapshot?.ownerId]?.name}}
+      </div>
+      <div style="width: 50%;font-size:medium;padding-right: 10px;">
+        {{order.status}}
+      </div>
+    </div>
+    <ion-item-sliding>
+      <ion-item (click)="gotoOrderDetail(order)">
+        <ion-thumbnail>
+          <img
+            src="{{host}}/static/{{order.snapshot?.ownerId}}/{{order.snapshot?.title}}/{{order.snapshot?.mediaList[0]?.image}}" />
+        </ion-thumbnail>
+        <div style="height: 90%;vertical-align: top;width: 50%;margin-left: 5px;">
+          {{order.snapshot?.title}}
+        </div>
+        <div style="width: 30%;text-align: right;color: red;">
+          ¥{{formatRBM((order.amount/100).toString())}}
+        </div>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="delete(order)">删除</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    <div>
+      <div></div>
+      <div (click)="refund(order)">申请退款</div>
+      <div (click)="buyAgain(order.snapshot)">再次购买</div>
+      <div>立即评价</div>
+    </div>
+  </div>
+</ion-content>

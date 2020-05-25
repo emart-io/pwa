@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+      <ion-button>
+        <!-- <ion-icon name="search"></ion-icon> -->
+        <ion-input [(ngModel)]="keyword" (keyup.enter)="ionViewWillEnter()"></ion-input>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-slides [options]="slideOpts">
+  <ion-slide>
+    综合
+  </ion-slide>
+  <ion-slide>
+    产地
+  </ion-slide>
+  <ion-slide>
+    品类
+  </ion-slide>
+  <ion-slide>
+    筛选
+  </ion-slide>
+</ion-slides>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content refreshingSpinner="bubbles"></ion-refresher-content>
+  </ion-refresher>
+  <ion-item *ngFor="let commodity of commodities" (click)="gotoDetail(commodity)">
+    <ion-thumbnail style="width: 40%;min-width: 140px;--border-radius:5px;height: auto;margin-bottom: 0;">
+      <img *ngIf="commodity.mediaList[0]?.image"
+        src="{{host}}/static/{{commodity.ownerId}}/{{commodity.title}}/{{commodity.mediaList[0]?.image}}" />
+      <div style="height:0;padding-bottom: 100%;position: relative;" *ngIf="commodity.mediaList[0]?.video">
+        <video *ngIf="commodity.mediaList[0]?.video" autoplay muted
+          style="width: 100%;height: 100%;position: absolute;object-fit: fill;"
+          src="{{host}}/static/{{commodity.ownerId}}/{{commodity.title}}/{{commodity.mediaList[0]?.video}}"></video>
+      </div>
+    </ion-thumbnail>
+    <div style="width: 60%;padding-left: 10px;">
+      <div class="title"> {{commodity.title}} </div>
+      <div style="top:45%;position: absolute;">
+        <ion-badge *ngFor="let tag of commodity.tagsList">{{tag}}</ion-badge>
+      </div>
+      <div style="color:red;position: absolute;bottom: 10px;">¥{{formatRBM(commodity.pricesList[0]?.group)}}</div>
+      <div style="font-size: small;right: 2%;bottom: 10px;position: absolute;">
+        <ion-icon name="pin"></ion-icon>{{commodity.city}}
+      </div>
+    </div>
+  </ion-item>
+</ion-content>

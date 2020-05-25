@@ -1,0 +1,157 @@
+<!-- <ion-header> -->
+<div class="div-header">
+  <!-- <ion-toolbar style="--background:inherit;--color:var(--mytextcolor);--padding-top:7%">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/address">
+        <ion-icon name="pin"></ion-icon>
+        <ion-label>{{city}}</ion-label>
+      </ion-button>
+      <ion-button>
+        <ion-input placeholder="搜一下" (keyup.enter)="gotoView($event.target.value)"></ion-input>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/message">
+        <ion-icon name="mail-unread"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar> -->
+</div>
+<!-- </ion-header> -->
+
+<div class="div-content">
+  <div class="top-toolbar">
+    <ion-button routerLink="/address" size="small" style="--padding-start:5px">
+      <ion-icon name="location-outline"></ion-icon>
+      <ion-label>{{city}}</ion-label>
+    </ion-button>
+  </div>
+  <div class="top-toolbar">
+    <ion-button size="small">
+      <ion-input placeholder="搜一下" (keyup.enter)="gotoView($event.target.value)"></ion-input>
+    </ion-button>
+  </div>
+  <div style="text-align: right;" class="top-toolbar">
+    <ion-button routerLink="/scanner" size="small" style="--padding-end:0px">
+      <ion-icon name="scan-outline"></ion-icon>
+    </ion-button>
+    <ion-button routerLink="/message" size="small" style="--padding-end:5px">
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+    </ion-button>
+  </div>
+  <div class="div-scroll">
+    <ion-slides #mySlider [options]="slideTopOpts">
+      <ion-slide>
+        <div class="top-swiper">
+          <!-- <ion-item style="--background: inherit;" lines="none">
+          <ion-icon name="browsers" slot="start"></ion-icon>
+        </ion-item> -->
+          <iframe allowtransparency="true" frameborder="0" width="360" height="64" scrolling="no"
+            style="top: 35%;position: relative;"
+            src="https://tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=1&v=2&d=2&bd=0&k=&f=&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=60198&w=410&h=64&align=center"></iframe>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="top-swiper">
+          <img style="height:100%;width:100%;border-radius: 5px;" src="assets/top/top1.jpg" />
+          <!-- <ion-item style="--background: inherit;" lines="none">
+          <ion-icon name="browsers" slot="start" color="light"></ion-icon>
+        </ion-item>
+        <div style="color:var(--mytextcolor);font-size:x-large;height: 50%;text-shadow: -1px -1px white,1px 1px #333;">
+          大集优选
+        </div> -->
+          <!-- <iframe allowtransparency="true" frameborder="0" width="360" height="64" scrolling="no"
+          style="top: 35%;position: relative;"
+          src="https://tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=1&v=2&d=2&bd=0&k=&f=&ltf=009944&htf=cc0000&q=1&e=0&a=0&c=54511&w=410&h=64&align=center"></iframe> -->
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="top-swiper">
+          <img style="height:100%;width:100%;border-radius: 5px;" src="assets/top/top2.jpg" />
+        </div>
+      </ion-slide>
+    </ion-slides>
+    <ion-card-content>
+      <div (click)="gotoView('')">
+        <div>农</div><br /> 限时特惠
+      </div>
+      <div (click)="gotoView('')">
+        <div>村</div><br /> 大集果园
+      </div>
+      <div (click)="gotoView('')">
+        <div>大</div><br /> 件件9块9
+      </div>
+      <div (click)="gotoView('')">
+        <div>集</div><br /> 认证好店
+      </div>
+      <div (click)="gotoView('')">
+        <div>火</div><br /> 厂家直销
+      </div>
+      <div (click)="gotoView('')">
+        <div>爆</div><br /> 全国行情
+      </div>
+      <div (click)="gotoView('')">
+        <div>公</div><br /> 生意圈
+      </div>
+      <div routerLink='/memo'>
+        <div>测</div><br /> 百宝箱
+      </div>
+    </ion-card-content>
+    <div style="margin: 5% 20px;">
+      <ion-card-subtitle>为你推荐</ion-card-subtitle>
+      <ion-slides [options]="slideOpts">
+        <ion-slide *ngFor="let commodity of commodities" (click)="gotoDetail(commodity)">
+          <ion-card style="margin:5px;height: 100%;width: 100%;">
+            <img *ngIf="commodity.mediaList[0]?.image"
+              src="{{host}}/static/{{commodity.ownerId}}/{{commodity.title}}/{{commodity.mediaList[0]?.image}}" />
+            <div style="height:0;padding-bottom: 100%;position: relative;" *ngIf="commodity.mediaList[0]?.video">
+              <video *ngIf="commodity.mediaList[0]?.video"
+                style="height:100%;width: 100%;position: absolute;object-fit: fill;top: 0;left: 0;"
+                src="{{host}}/static/{{commodity.ownerId}}/{{commodity.title}}/{{commodity.mediaList[0]?.video}}"></video>
+            </div>
+            <ion-card-header style="text-align: left;padding:2px;">
+              <ion-item-group>
+                <ion-label style="font-size: small;">
+                  {{commodity.title}}
+                </ion-label>
+              </ion-item-group>
+              <ion-item-group style="margin:5px 0 7px 0; height: 16px;">
+                <ion-badge>{{commodity.tagsList[0]}}</ion-badge>
+              </ion-item-group>
+              <div>
+                <ion-label style="color: red;font-size: xx-small;">¥<span
+                    style="font-weight: bolder;font-size:small">{{formatRBM(commodity.pricesList[0]?.group)}}</span>
+                </ion-label>
+                <ion-icon name="play-circle-outline" size="small" style="position:absolute;right: 0;"></ion-icon>
+              </div>
+            </ion-card-header>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <div style="margin: 5% 20px;">
+      <ion-card-subtitle>最新上架</ion-card-subtitle>
+      <ion-item style="--padding-start:5px" *ngFor="let commodity of commodities" (click)="gotoDetail(commodity)">
+        <ion-thumbnail style="width: 40%;min-width: 140px;--border-radius:5px;height: auto;margin-bottom: 0;">
+          <img *ngIf="commodity.mediaList[0]?.image"
+            src="{{host}}/static/{{commodity.ownerId}}/{{commodity.title}}/{{commodity.mediaList[0]?.image}}" />
+          <div style="height:0;padding-bottom: 100%;position: relative;" *ngIf="commodity.mediaList[0]?.video">
+            <video *ngIf="commodity.mediaList[0]?.video" autoplay muted
+              style="height: 100%;width: 100%;position: absolute;object-fit: fill;"
+              src="{{host}}/static/{{commodity.ownerId}}/{{commodity.title}}/{{commodity.mediaList[0]?.video}}"></video>
+          </div>
+        </ion-thumbnail>
+        <div style="width: 60%;padding-left: 10px;">
+          <div class="title"> {{commodity.title}} </div>
+          <div style="top:45%;position: absolute;">
+            <ion-badge *ngFor="let tag of commodity.tagsList">{{tag}}</ion-badge>
+          </div>
+          <div style="color:red;position: absolute;bottom: 10px;">¥{{formatRBM(commodity.pricesList[0]?.group)}}</div>
+          <div style="font-size: small;right: 0;bottom: 10px;position: absolute;">
+            <ion-icon name="pin"></ion-icon>{{commodity.city}}
+          </div>
+        </div>
+      </ion-item>
+    </div>
+  </div>
+</div>

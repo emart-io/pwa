@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>实名认证</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="none">
+    <ion-label>姓名</ion-label>
+    <ion-input type="text" placeholder="请输入真实姓名" [(ngModel)]="user.cert.fullName"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>身份证号</ion-label>
+    <ion-input type="text" placeholder="请输入身份证号" [(ngModel)]="user.cert.idCardNo"></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <img *ngFor="let image of images" [src]="image">
+  </ion-item>
+  <ion-list lines="none" style="position: absolute;top: 30%;">
+    <ion-item>
+      身份证正面
+    </ion-item>
+    <ion-item (click)="addImage('身份证正面')">
+      <img src="{{host}}/static/{{user.id}}/certification/身份证正面.jpg"
+        onError="this.src='svg/md-cloud-upload.svg';this.style='width:30px'">
+    </ion-item>
+    <ion-item>
+      身份证反面
+    </ion-item>
+    <ion-item (click)="addImage('身份证反面')">
+      <img src="{{host}}/static/{{user.id}}/certification/身份证反面.jpg"
+        onError="this.src='svg/md-cloud-upload.svg';this.style='width:30px'">
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-button (click)="submit()">提交</ion-button>

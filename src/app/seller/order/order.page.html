@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>订单管理</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-slides [options]="slideOpts">
+  <ion-slide *ngFor="let status of statuses" [class.selected]="selectedStatus==status" (click)="listByStatus(status)">
+    {{status}}
+  </ion-slide>
+</ion-slides>
+
+<ion-content>
+  <ion-card *ngFor="let order of orders">
+    <ion-item lines="none">
+      <ion-card-subtitle>
+        {{order.userId}}
+      </ion-card-subtitle>
+      <ion-card-subtitle style="right:15px;position: absolute;">
+        {{order.status}}
+      </ion-card-subtitle>
+    </ion-item>
+    <ion-item lines="none" (click)="gotoOrderDetail(order)">
+      <img class="order-image"
+        src="{{host}}/static/{{order.snapshot?.ownerId}}/{{order.snapshot?.title}}/{{order.snapshot?.mediaList[0]?.image}}" />
+      <div class="order-content">
+        {{order.snapshot?.title}}
+        <div class="order-price">
+          ¥{{formatRBM((order.amount/100).toString())}}
+        </div>
+      </div>
+    </ion-item>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button (click)="deliver(order)">
+          发货
+        </ion-button>
+        <ion-button (click)="refund(order)">
+          退款
+        </ion-button>
+        <ion-button>
+          评价
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-card>
+</ion-content>

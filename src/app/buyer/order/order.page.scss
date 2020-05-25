@@ -1,0 +1,44 @@
+ion-slides {
+    width: 100%;
+    ion-slide {
+      font-size: small;
+      padding: 3px;
+    }
+}
+
+ion-button {
+    font-size: small;
+}
+
+ion-content{
+    --background: #f2f2f2;
+    div {
+        padding: 10px;
+        border-radius:5px;
+        background: white;
+        //box-shadow: none;
+        ion-item-sliding{
+            //background: #f2f2f2;
+            ion-item {
+                //--background: #f2f2f2;
+                ion-thumbnail {
+                    --border-radius:5px;
+                }
+            }
+        }
+        div {
+            padding:0 5px;
+            div {
+                display:inline-block;
+                width: 25%;
+                font-size:small;
+                text-align: right;
+            }
+        }
+    }
+}
+
+.selected {
+    color: var(--mycolor);
+    border-bottom: 2px solid var(--mycolor);
+}

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>个人信息</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()">
+        <ion-icon name="checkmark-done-outline"></ion-icon>
+        <!-- 保存 -->
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item (click)="select()">
+    <!-- <ion-label>头像</ion-label> -->
+    <ion-avatar style="height: 160px;width: 160px;margin:20px auto;">
+      <img [src]="user.icon?user.icon:'assets/fruit/banana.png'" onClick="getElementById('fileBtn').click()" />
+    </ion-avatar>
+    <input id="fileBtn" type="file" (change)="selectIcon()" accept="image/*" style="display: none;" />
+  </ion-item>
+  <ion-item>
+    <ion-icon slot="start" name="bonfire"></ion-icon>
+    <div>
+      <ion-label>签名</ion-label>
+      <ion-input type="text" [(ngModel)]="user.signature"></ion-input>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-icon slot="start" name="body"></ion-icon>
+    <div>
+      <ion-label>昵称</ion-label>
+      <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-icon slot="start" name="call"></ion-icon>
+    <div>
+      <ion-label>电话</ion-label>
+      <ion-input type="text" [(ngModel)]="user.telephone" readonly></ion-input>
+    </div>
+  </ion-item>
+</ion-content>
+<!-- <ion-button (click)="save()">保存</ion-button> -->

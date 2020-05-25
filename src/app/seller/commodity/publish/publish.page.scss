@@ -1,0 +1,12 @@
+ion-content ion-card {
+    box-shadow: none !important;
+}
+
+ion-item {
+    ion-grid {
+        text-align: right;
+    }
+    ion-label {
+        min-width: 35px;
+    }
+}

@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>发布商品</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item lines="none">
+      <ion-label>标题</ion-label>
+      <ion-input required placeholder="请输入商品标题" [(ngModel)]="commodity.title"></ion-input>
+    </ion-item>
+    <!-- <ion-item lines="none" style="--overflow:auto;overflow:auto;height: 80px;"> -->
+    <div style="height: 80px;margin-left: 15px;overflow-x:auto;overflow-y: hidden;white-space: nowrap;">
+      <div style="margin: 0 1px;display: inline-block;position: relative;"
+        *ngFor="let medium of mediumPreviews;let i=index">
+        <img *ngIf="medium.image" style="width: 80px;height: 80px;" [src]="medium.image" />
+        <video muted autoplay *ngIf="medium.video" style="width: 80px;height: 80px;" [src]="medium.video"></video>
+        <img src="svg/md-close-circle.svg" (click)="remove(i)"
+          style="height: 20px;width: 20px;position:absolute;top:0;right: 0;display: block;" />
+      </div>
+    </div>
+    <!-- </ion-item> -->
+    <ion-item lines="none">
+      <ion-button (click)="toast()">
+        <ion-label>拍照</ion-label>
+        <ion-icon name="camera"></ion-icon>+
+      </ion-button>
+      <input id="cameraBtn" type="file" (change)="addMedia()" accept="image/*,video/mp4" style="display: none;" />
+    </ion-item>
+    <ion-item (click)="presentModal(commodity)">
+      <ion-label>类别</ion-label>
+      <ion-input placeholder="选择商品类别" readonly [ngModel]="commodity.category"></ion-input>
+      <ion-icon name="caret-down-circle-outline"></ion-icon>
+    </ion-item>
+    <ion-item lines="none" (click)="presentPrice()">
+      <ion-label style="max-width: 40px;">价格</ion-label>
+      <ion-input placeholder="请输入价格" *ngIf="commodity.pricesList.length==0"></ion-input>
+      <ion-grid *ngIf="commodity.pricesList.length>0">
+        <ion-row>
+          <ion-col>规格</ion-col>
+          <ion-col>单买价</ion-col>
+          <ion-col>拼团价</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let price of commodity.pricesList">
+          <ion-col>{{price.name}}</ion-col>
+          <ion-col>¥{{price.single}}</ion-col>
+          <ion-col>¥{{price.group}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item (click)="presentExpress()">
+      <ion-label>物流</ion-label>
+      <ion-input placeholder="全场包邮"></ion-input>
+    </ion-item>
+    <!-- <div *ngIf="displayMore"> -->
+    <ion-item lines="none">
+      <ion-label>描述</ion-label>
+      <div style="width: 100%;">
+        <ion-textarea style="margin-top: 0;" placeholder="可附加描述" [(ngModel)]="commodity.content">
+        </ion-textarea>
+      </div>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>标签</ion-label>
+      <ion-select style="max-width: 90%;" placeholder="特色标签" multiple [(ngModel)]="commodity.tagsList" cancelText="取消"
+        okText="确定">
+        <ion-select-option value="农家自产">农家自产</ion-select-option>
+        <!-- <ion-select-option value="限量特价">限量特价</ion-select-option> -->
+        <ion-select-option value="7天退换">7天退换</ion-select-option>
+        <ion-select-option value="极速退款">极速退款</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>货源地址</ion-label>
+      <ion-input [(ngModel)]="commodity.city"></ion-input>
+    </ion-item>
+    <!-- </div> -->
+  </ion-card>
+  <!-- <ion-item lines="none" *ngIf="!displayMore" (click)="displayMore=!displayMore">
+    <ion-icon name="arrow-dropright"></ion-icon>
+    <ion-label>显示更多</ion-label>
+  </ion-item>
+  <ion-item lines="none" *ngIf="displayMore" (click)="displayMore=!displayMore">
+    <ion-icon name="arrow-dropup"></ion-icon>
+    <ion-label>收起更多</ion-label>
+  </ion-item> -->
+</ion-content>
+<ion-button (click)="submit()">确认发布</ion-button>

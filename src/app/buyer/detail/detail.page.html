@@ -1,0 +1,102 @@
+<!-- <ion-header no-border> -->
+<div class="top-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-back-button icon="arrow-round-back"></ion-back-button> -->
+      <ion-button (click)="back()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="star()">
+        <ion-icon name="heart-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="share()">
+        <ion-icon name="share"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</div>
+<!-- </ion-header> -->
+
+<ion-content>
+  <ion-slides [options]="slideOpts" pager="true">
+    <ion-slide *ngFor="let medium of commodity.mediaList">
+      <img *ngIf="medium.image" style="width: 100%;max-height: auto; object-fit: cover;"
+        src="{{host}}/static/{{commodity.ownerId}}/{{commodity.title}}/{{medium.image}}" />
+      <div style="height:0;padding-bottom: 100%;position: relative;" *ngIf="medium.video">
+        <video autoplay muted *ngIf="medium.video" style="width: 100%;height: auto; object-fit: fill;"
+          src="{{host}}/static/{{commodity.ownerId}}/{{commodity.title}}/{{medium.video}}"></video>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div style="color:orangered">¥<span
+            style="font-size: x-large;font-weight: bolder;">{{formatRBM(commodity.pricesList[0]?.group)}}</span>
+          <span style="font-size:x-small">起 </span>
+          <span
+            style="font-size:x-small;text-decoration:line-through;color:black">¥{{commodity.pricesList[0]?.single}}</span>
+        </div>
+      </ion-col>
+      <ion-col style="text-align: right;font-size: small">
+        <!-- 月销量999件 -->
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="font-weight: bolder">
+        [2日内发货] {{commodity.title}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-badge *ngFor="let tag of commodity.tagsList">{{tag}}</ion-badge>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <hr style="height: 5px;background-color:gainsboro;margin-top: -5px;" />
+  <ion-list>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-img [src]="owner?.icon?owner.icon:'assets/fruit/banana.png'"></ion-img>
+      </ion-avatar>
+      <ion-label>{{owner?.shopsList[0]?.name?owner?.shopsList[0]?.name:owner?.name}}</ion-label>
+      <!-- <ion-label slot="end" style="font-size:x-small">1000粉丝</ion-label> -->
+      <ion-note slot="end">1000粉丝</ion-note>
+    </ion-item>
+    <ion-item lines="none">
+      商品详情
+    </ion-item>
+    <ion-item lines="none" *ngIf="commodity.content">
+      {{commodity.content}}
+    </ion-item>
+    <div style="display:inline-block;width: 50%;height:auto;padding: 0 1px;" *ngFor="let medium of commodity.mediaList">
+      <img *ngIf="medium.image" src="{{host}}/static/{{commodity.ownerId}}/{{commodity.title}}/{{medium.image}}" />
+      <div style="height:0;padding-bottom: 100%;position: relative;" *ngIf="medium.video">
+        <video *ngIf="medium.video" autoplay loop muted
+          style="height: 100%;width: 100%;position: absolute;object-fit: fill;"
+          src="{{host}}/static/{{commodity.ownerId}}/{{commodity.title}}/{{medium.video}}"></video>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <!-- <ion-button>
+        <ion-icon name="wallet"></ion-icon>
+        店铺
+      </ion-button> -->
+      <ion-button (click)="session()">
+        <ion-icon name="chatbubbles"></ion-icon>
+        客服
+      </ion-button>
+    </ion-buttons>
+    <ion-item-group slot="end">
+      <ion-button (click)="select(false,$event)" size="small" shape="round">立即购买</ion-button>
+      <ion-button (click)="select(true,$event)" size="small" shape="round">发起拼团</ion-button>
+    </ion-item-group>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,40 @@
+<!-- <ion-header> -->
+<!-- <ion-toolbar class="ion-text-center"> -->
+<!-- <ion-buttons slot="start">
+          <ion-button (click)="dismiss()">
+            <ion-icon name="arrow-round-back"></ion-icon>
+          </ion-button>
+        </ion-buttons> -->
+<!-- <ion-title>添加收货地址</ion-title>
+</ion-toolbar> -->
+<!-- </ion-header> -->
+
+<ion-content>
+  <ion-item>
+    <ion-label>新建收货地址</ion-label>
+    <ion-icon name="close" slot="end" (click)="cancel()" size="small"></ion-icon>
+  </ion-item>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label>收货人</ion-label>
+      <ion-input placeholder="请填写收货人" [(ngModel)]="address.contact"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>手机号码</ion-label>
+      <ion-input placeholder="收货人手机号码" [(ngModel)]="address.telephone"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>详细地址</ion-label>
+      <div style="width: 100%;">
+        <ion-textarea style="margin-top: 0;" placeholder="请填写收货详细地址(如省/市/区/镇/街道/小区/村)" [(ngModel)]="address.location">
+        </ion-textarea>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer style="position: fixed;bottom: 0;width: 100%;" no-border>
+  <ion-button (click)="save()" expand="full">
+    保存
+  </ion-button>
+</ion-footer>

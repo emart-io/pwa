@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>运费选择</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-item>
+    运费模板
+  </ion-item> -->
+  <ion-item (click)="close()">
+    全国包邮
+  </ion-item>
+  <ion-item (click)="close()">
+    除港澳台，新疆，西藏地区包邮
+  </ion-item>
+  <ion-item (click)="close()">
+    运费待协商
+  </ion-item>
+  <div style="width: 100%;text-align: center;font-size: small;">*目前仅开放全场包邮</div>
+</ion-content>
+<ion-button (click)="close()">确定</ion-button>
