@@ -22,7 +22,7 @@
 <div class="div-content">
   <div class="top-toolbar">
     <ion-button routerLink="/address" size="small" style="--padding-start:5px">
-      <ion-icon name="location-outline"></ion-icon>
+      <ion-icon name="location"></ion-icon>
       <ion-label>{{city}}</ion-label>
     </ion-button>
   </div>
@@ -33,10 +33,10 @@
   </div>
   <div style="text-align: right;" class="top-toolbar">
     <ion-button routerLink="/scanner" size="small" style="--padding-end:0px">
-      <ion-icon name="scan-outline"></ion-icon>
+      <ion-icon name="scan"></ion-icon>
     </ion-button>
     <ion-button routerLink="/message" size="small" style="--padding-end:5px">
-      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+      <ion-icon name="chatbubble-ellipses"></ion-icon>
     </ion-button>
   </div>
   <div class="div-scroll">
@@ -122,7 +122,7 @@
                 <ion-label style="color: red;font-size: xx-small;">¥<span
                     style="font-weight: bolder;font-size:small">{{formatRBM(commodity.pricesList[0]?.group)}}</span>
                 </ion-label>
-                <ion-icon name="play-circle-outline" size="small" style="position:absolute;right: 0;"></ion-icon>
+                <ion-icon name="play-circle" size="small" style="position:absolute;right: 0;"></ion-icon>
               </div>
             </ion-card-header>
           </ion-card>
@@ -148,7 +148,7 @@
           </div>
           <div style="color:red;position: absolute;bottom: 10px;">¥{{formatRBM(commodity.pricesList[0]?.group)}}</div>
           <div style="font-size: small;right: 0;bottom: 10px;position: absolute;">
-            <ion-icon name="pin"></ion-icon>{{commodity.city}}
+            <ion-icon name="location"></ion-icon>{{commodity.city}}
           </div>
         </div>
       </ion-item>
