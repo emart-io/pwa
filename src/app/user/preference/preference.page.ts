@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BrowserQRCodeSvgWriter } from '@zxing/library';
 import { utilsService } from '../../providers/utils.service';
 import { environment } from '../../../environments/environment';
@@ -9,11 +9,16 @@ import { environment } from '../../../environments/environment';
   templateUrl: './preference.page.html',
   styleUrls: ['./preference.page.scss'],
 })
-export class PreferencePage {
+export class PreferencePage implements OnInit {
   isLogin = false;
   host = environment.apiUrl;
 
   constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    const codeWriter = new BrowserQRCodeSvgWriter();
+    codeWriter.writeToDom('#qr-code', "https://iyou.city", 150, 150)
+  }
 
   ionViewWillEnter() {
     if (utilsService.getUser()) {
@@ -21,9 +26,6 @@ export class PreferencePage {
     } else {
       return this.router.navigateByUrl('/login');
     }
-
-    const codeWriter = new BrowserQRCodeSvgWriter();
-    codeWriter.writeToDom('#qr-code', "https://iyou.city", 150, 150)
   }
 
   logout() {
