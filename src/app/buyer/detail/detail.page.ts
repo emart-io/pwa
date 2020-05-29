@@ -39,7 +39,7 @@ export class DetailPage {
         if (params['id']) {
           this.commodity = new Commodity();
           this.commodity.id = params['id'];
-          apiService.commodityClient.get(this.commodity, apiService.metaData).then(commodity => {
+          apiService.commodityClient.get(this.commodity).then(commodity => {
             this.commodity = commodity;
             this.getOwnerById();
           })
@@ -131,7 +131,7 @@ export class DetailPage {
   getOwnerById() {
     let user = new User();
     user.id = this.commodity.ownerId;
-    apiService.userClient.get(user, apiService.metaData).then((user) => {
+    apiService.userClient.get(user).then((user) => {
       this.owner = user;
     }).catch(err => {
       utilsService.alert(JSON.stringify(err));

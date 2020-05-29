@@ -37,14 +37,14 @@ export class PopoverPage {
 
     this.address.userId = utilsService.getUser().id;
     if (this.address.id != "") {
-      apiService.addressClient.update(this.address, apiService.metaData).then(address => {
+      apiService.addressClient.update(this.address).then(address => {
         console.log(address);
         this.popoverController.dismiss();
       }).catch(err => {
         utilsService.alert(JSON.stringify(err));
       })
     } else {
-      apiService.addressClient.add(this.address, apiService.metaData).then(address => {
+      apiService.addressClient.add(this.address).then(address => {
         console.log(address);
         this.popoverController.dismiss();
       }).catch(err => {
