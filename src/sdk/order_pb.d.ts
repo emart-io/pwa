@@ -12,9 +12,9 @@ export class Account extends jspb.Message {
   orderId: string;
   created: google_protobuf_timestamp_pb.Timestamp | undefined;
   hascreated(): boolean;
-  clearcreated(): void;
+  clearcreated(): Account;
   annotationsMap: jspb.Map<string, string>;
-  clearannotationsMap(): void;
+  clearannotationsMap(): Account;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Account.AsObject;
   static toObject(includeInstance: boolean, msg: Account): Account.AsObject;
@@ -37,7 +37,7 @@ export namespace Account {
 export class PayMap extends jspb.Message {
   url: string;
   kvMap: jspb.Map<string, string>;
-  clearkvMap(): void;
+  clearkvMap(): PayMap;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PayMap.AsObject;
   static toObject(includeInstance: boolean, msg: PayMap): PayMap.AsObject;
@@ -57,32 +57,32 @@ export class Order extends jspb.Message {
   id: string;
   snapshot: commodity_pb.Commodity | undefined;
   hassnapshot(): boolean;
-  clearsnapshot(): void;
+  clearsnapshot(): Order;
   groupon: Groupon | undefined;
   hasgroupon(): boolean;
-  cleargroupon(): void;
+  cleargroupon(): Order;
   price: commodity_pb.Price | undefined;
   hasprice(): boolean;
-  clearprice(): void;
+  clearprice(): Order;
   userId: string;
   destination: user_pb.Address | undefined;
   hasdestination(): boolean;
-  cleardestination(): void;
+  cleardestination(): Order;
   quantity: number;
   amount: number;
   status: string;
   comment: string;
   payInfo: PayInfo | undefined;
   haspayInfo(): boolean;
-  clearpayInfo(): void;
+  clearpayInfo(): Order;
   express: Express | undefined;
   hasexpress(): boolean;
-  clearexpress(): void;
+  clearexpress(): Order;
   annotationsMap: jspb.Map<string, string>;
-  clearannotationsMap(): void;
+  clearannotationsMap(): Order;
   created: google_protobuf_timestamp_pb.Timestamp | undefined;
   hascreated(): boolean;
-  clearcreated(): void;
+  clearcreated(): Order;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Order.AsObject;
   static toObject(includeInstance: boolean, msg: Order): Order.AsObject;
@@ -160,8 +160,8 @@ export namespace WechatPayParams {
 
 export class Groupon extends jspb.Message {
   orderIdsList: Array<string>;
-  clearorderIdsList(): void;
-  addOrderids(value: string, index?: number): void;
+  clearorderIdsList(): Groupon;
+  addOrderids(value: string, index?: number): Groupon;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Groupon.AsObject;
   static toObject(includeInstance: boolean, msg: Groupon): Groupon.AsObject;
@@ -197,7 +197,7 @@ export namespace Express {
 export class ListQuery extends jspb.Message {
   user: user_pb.User | undefined;
   hasuser(): boolean;
-  clearuser(): void;
+  clearuser(): ListQuery;
   status: string;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListQuery.AsObject;

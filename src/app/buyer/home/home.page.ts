@@ -53,7 +53,7 @@ export class HomePage {
   ionViewWillEnter() {
     let kw = new StringValue();
     //kw.setValue(this.keyword);
-    let stream = apiService.commodityClient.search(kw, apiService.metaData);
+    let stream = apiService.commodityClient.search(kw);
     let newCommodities = [];
     stream.on('data', response => {
       if (!this.commodities.some(item => item.id == response.id)) {

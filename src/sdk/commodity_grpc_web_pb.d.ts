@@ -12,8 +12,8 @@ import {
 
 export class CommoditiesClient {
   constructor (hostname: string,
-               credentials: null | { [index: string]: string; },
-               options: null | { [index: string]: string; });
+               credentials?: null | { [index: string]: string; },
+               options?: null | { [index: string]: string; });
 
   add(
     request: Commodity,
@@ -57,8 +57,8 @@ export class CommoditiesClient {
 
 export class CouponsClient {
   constructor (hostname: string,
-               credentials: null | { [index: string]: string; },
-               options: null | { [index: string]: string; });
+               credentials?: null | { [index: string]: string; },
+               options?: null | { [index: string]: string; });
 
   add(
     request: Coupon,
@@ -97,8 +97,8 @@ export class CouponsClient {
 
 export class CommentsClient {
   constructor (hostname: string,
-               credentials: null | { [index: string]: string; },
-               options: null | { [index: string]: string; });
+               credentials?: null | { [index: string]: string; },
+               options?: null | { [index: string]: string; });
 
   add(
     request: Comment,
@@ -137,8 +137,8 @@ export class CommentsClient {
 
 export class CommoditiesPromiseClient {
   constructor (hostname: string,
-               credentials: null | { [index: string]: string; },
-               options: null | { [index: string]: string; });
+               credentials?: null | { [index: string]: string; },
+               options?: null | { [index: string]: string; });
 
   add(
     request: Commodity,
@@ -174,8 +174,8 @@ export class CommoditiesPromiseClient {
 
 export class CouponsPromiseClient {
   constructor (hostname: string,
-               credentials: null | { [index: string]: string; },
-               options: null | { [index: string]: string; });
+               credentials?: null | { [index: string]: string; },
+               options?: null | { [index: string]: string; });
 
   add(
     request: Coupon,
@@ -206,8 +206,8 @@ export class CouponsPromiseClient {
 
 export class CommentsPromiseClient {
   constructor (hostname: string,
-               credentials: null | { [index: string]: string; },
-               options: null | { [index: string]: string; });
+               credentials?: null | { [index: string]: string; },
+               options?: null | { [index: string]: string; });
 
   add(
     request: Comment,

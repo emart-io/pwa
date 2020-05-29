@@ -7,6 +7,10 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 
+/* eslint-disable */
+// @ts-nocheck
+
+
 
 const grpc = {};
 grpc.web = require('grpc-web');
@@ -45,16 +49,6 @@ proto.zbay.OrdersClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
 
 
@@ -81,17 +75,29 @@ proto.zbay.OrdersPromiseClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Order,
+ *   !proto.zbay.Order>}
+ */
+const methodDescriptor_Orders_Add = new grpc.web.MethodDescriptor(
+  '/zbay.Orders/Add',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Order,
+  proto.zbay.Order,
+  /**
+   * @param {!proto.zbay.Order} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Order.deserializeBinary
+);
 
 
 /**
@@ -102,7 +108,10 @@ proto.zbay.OrdersPromiseClient =
  */
 const methodInfo_Orders_Add = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Order,
-  /** @param {!proto.zbay.Order} request */
+  /**
+   * @param {!proto.zbay.Order} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -126,7 +135,7 @@ proto.zbay.OrdersClient.prototype.add =
       '/zbay.Orders/Add',
       request,
       metadata || {},
-      methodInfo_Orders_Add,
+      methodDescriptor_Orders_Add,
       callback);
 };
 
@@ -145,8 +154,30 @@ proto.zbay.OrdersPromiseClient.prototype.add =
       '/zbay.Orders/Add',
       request,
       metadata || {},
-      methodInfo_Orders_Add);
+      methodDescriptor_Orders_Add);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Order,
+ *   !proto.zbay.Order>}
+ */
+const methodDescriptor_Orders_Get = new grpc.web.MethodDescriptor(
+  '/zbay.Orders/Get',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Order,
+  proto.zbay.Order,
+  /**
+   * @param {!proto.zbay.Order} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Order.deserializeBinary
+);
 
 
 /**
@@ -157,7 +188,10 @@ proto.zbay.OrdersPromiseClient.prototype.add =
  */
 const methodInfo_Orders_Get = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Order,
-  /** @param {!proto.zbay.Order} request */
+  /**
+   * @param {!proto.zbay.Order} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -181,7 +215,7 @@ proto.zbay.OrdersClient.prototype.get =
       '/zbay.Orders/Get',
       request,
       metadata || {},
-      methodInfo_Orders_Get,
+      methodDescriptor_Orders_Get,
       callback);
 };
 
@@ -200,8 +234,30 @@ proto.zbay.OrdersPromiseClient.prototype.get =
       '/zbay.Orders/Get',
       request,
       metadata || {},
-      methodInfo_Orders_Get);
+      methodDescriptor_Orders_Get);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Order,
+ *   !proto.zbay.Order>}
+ */
+const methodDescriptor_Orders_Update = new grpc.web.MethodDescriptor(
+  '/zbay.Orders/Update',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Order,
+  proto.zbay.Order,
+  /**
+   * @param {!proto.zbay.Order} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Order.deserializeBinary
+);
 
 
 /**
@@ -212,7 +268,10 @@ proto.zbay.OrdersPromiseClient.prototype.get =
  */
 const methodInfo_Orders_Update = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Order,
-  /** @param {!proto.zbay.Order} request */
+  /**
+   * @param {!proto.zbay.Order} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -236,7 +295,7 @@ proto.zbay.OrdersClient.prototype.update =
       '/zbay.Orders/Update',
       request,
       metadata || {},
-      methodInfo_Orders_Update,
+      methodDescriptor_Orders_Update,
       callback);
 };
 
@@ -255,8 +314,30 @@ proto.zbay.OrdersPromiseClient.prototype.update =
       '/zbay.Orders/Update',
       request,
       metadata || {},
-      methodInfo_Orders_Update);
+      methodDescriptor_Orders_Update);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Order,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_Orders_Delete = new grpc.web.MethodDescriptor(
+  '/zbay.Orders/Delete',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Order,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.zbay.Order} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
 
 
 /**
@@ -267,7 +348,10 @@ proto.zbay.OrdersPromiseClient.prototype.update =
  */
 const methodInfo_Orders_Delete = new grpc.web.AbstractClientBase.MethodInfo(
   google_protobuf_empty_pb.Empty,
-  /** @param {!proto.zbay.Order} request */
+  /**
+   * @param {!proto.zbay.Order} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -291,7 +375,7 @@ proto.zbay.OrdersClient.prototype.delete =
       '/zbay.Orders/Delete',
       request,
       metadata || {},
-      methodInfo_Orders_Delete,
+      methodDescriptor_Orders_Delete,
       callback);
 };
 
@@ -310,8 +394,30 @@ proto.zbay.OrdersPromiseClient.prototype.delete =
       '/zbay.Orders/Delete',
       request,
       metadata || {},
-      methodInfo_Orders_Delete);
+      methodDescriptor_Orders_Delete);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Order,
+ *   !proto.zbay.Order>}
+ */
+const methodDescriptor_Orders_ListByOrder = new grpc.web.MethodDescriptor(
+  '/zbay.Orders/ListByOrder',
+  grpc.web.MethodType.SERVER_STREAMING,
+  proto.zbay.Order,
+  proto.zbay.Order,
+  /**
+   * @param {!proto.zbay.Order} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Order.deserializeBinary
+);
 
 
 /**
@@ -322,7 +428,10 @@ proto.zbay.OrdersPromiseClient.prototype.delete =
  */
 const methodInfo_Orders_ListByOrder = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Order,
-  /** @param {!proto.zbay.Order} request */
+  /**
+   * @param {!proto.zbay.Order} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -343,7 +452,7 @@ proto.zbay.OrdersClient.prototype.listByOrder =
       '/zbay.Orders/ListByOrder',
       request,
       metadata || {},
-      methodInfo_Orders_ListByOrder);
+      methodDescriptor_Orders_ListByOrder);
 };
 
 
@@ -360,8 +469,30 @@ proto.zbay.OrdersPromiseClient.prototype.listByOrder =
       '/zbay.Orders/ListByOrder',
       request,
       metadata || {},
-      methodInfo_Orders_ListByOrder);
+      methodDescriptor_Orders_ListByOrder);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.ListQuery,
+ *   !proto.zbay.Order>}
+ */
+const methodDescriptor_Orders_ListForBuyer = new grpc.web.MethodDescriptor(
+  '/zbay.Orders/ListForBuyer',
+  grpc.web.MethodType.SERVER_STREAMING,
+  proto.zbay.ListQuery,
+  proto.zbay.Order,
+  /**
+   * @param {!proto.zbay.ListQuery} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Order.deserializeBinary
+);
 
 
 /**
@@ -372,7 +503,10 @@ proto.zbay.OrdersPromiseClient.prototype.listByOrder =
  */
 const methodInfo_Orders_ListForBuyer = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Order,
-  /** @param {!proto.zbay.ListQuery} request */
+  /**
+   * @param {!proto.zbay.ListQuery} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -393,7 +527,7 @@ proto.zbay.OrdersClient.prototype.listForBuyer =
       '/zbay.Orders/ListForBuyer',
       request,
       metadata || {},
-      methodInfo_Orders_ListForBuyer);
+      methodDescriptor_Orders_ListForBuyer);
 };
 
 
@@ -410,8 +544,30 @@ proto.zbay.OrdersPromiseClient.prototype.listForBuyer =
       '/zbay.Orders/ListForBuyer',
       request,
       metadata || {},
-      methodInfo_Orders_ListForBuyer);
+      methodDescriptor_Orders_ListForBuyer);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.ListQuery,
+ *   !proto.zbay.Order>}
+ */
+const methodDescriptor_Orders_ListForSeller = new grpc.web.MethodDescriptor(
+  '/zbay.Orders/ListForSeller',
+  grpc.web.MethodType.SERVER_STREAMING,
+  proto.zbay.ListQuery,
+  proto.zbay.Order,
+  /**
+   * @param {!proto.zbay.ListQuery} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Order.deserializeBinary
+);
 
 
 /**
@@ -422,7 +578,10 @@ proto.zbay.OrdersPromiseClient.prototype.listForBuyer =
  */
 const methodInfo_Orders_ListForSeller = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Order,
-  /** @param {!proto.zbay.ListQuery} request */
+  /**
+   * @param {!proto.zbay.ListQuery} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -443,7 +602,7 @@ proto.zbay.OrdersClient.prototype.listForSeller =
       '/zbay.Orders/ListForSeller',
       request,
       metadata || {},
-      methodInfo_Orders_ListForSeller);
+      methodDescriptor_Orders_ListForSeller);
 };
 
 
@@ -460,7 +619,7 @@ proto.zbay.OrdersPromiseClient.prototype.listForSeller =
       '/zbay.Orders/ListForSeller',
       request,
       metadata || {},
-      methodInfo_Orders_ListForSeller);
+      methodDescriptor_Orders_ListForSeller);
 };
 
 
@@ -487,16 +646,6 @@ proto.zbay.AccountsClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
 
 
@@ -523,17 +672,29 @@ proto.zbay.AccountsPromiseClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Account,
+ *   !proto.zbay.Account>}
+ */
+const methodDescriptor_Accounts_Add = new grpc.web.MethodDescriptor(
+  '/zbay.Accounts/Add',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Account,
+  proto.zbay.Account,
+  /**
+   * @param {!proto.zbay.Account} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Account.deserializeBinary
+);
 
 
 /**
@@ -544,7 +705,10 @@ proto.zbay.AccountsPromiseClient =
  */
 const methodInfo_Accounts_Add = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Account,
-  /** @param {!proto.zbay.Account} request */
+  /**
+   * @param {!proto.zbay.Account} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -568,7 +732,7 @@ proto.zbay.AccountsClient.prototype.add =
       '/zbay.Accounts/Add',
       request,
       metadata || {},
-      methodInfo_Accounts_Add,
+      methodDescriptor_Accounts_Add,
       callback);
 };
 
@@ -587,8 +751,30 @@ proto.zbay.AccountsPromiseClient.prototype.add =
       '/zbay.Accounts/Add',
       request,
       metadata || {},
-      methodInfo_Accounts_Add);
+      methodDescriptor_Accounts_Add);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.User,
+ *   !proto.zbay.Account>}
+ */
+const methodDescriptor_Accounts_List = new grpc.web.MethodDescriptor(
+  '/zbay.Accounts/List',
+  grpc.web.MethodType.SERVER_STREAMING,
+  user_pb.User,
+  proto.zbay.Account,
+  /**
+   * @param {!proto.zbay.User} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Account.deserializeBinary
+);
 
 
 /**
@@ -599,7 +785,10 @@ proto.zbay.AccountsPromiseClient.prototype.add =
  */
 const methodInfo_Accounts_List = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Account,
-  /** @param {!proto.zbay.User} request */
+  /**
+   * @param {!proto.zbay.User} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -620,7 +809,7 @@ proto.zbay.AccountsClient.prototype.list =
       '/zbay.Accounts/List',
       request,
       metadata || {},
-      methodInfo_Accounts_List);
+      methodDescriptor_Accounts_List);
 };
 
 
@@ -637,8 +826,30 @@ proto.zbay.AccountsPromiseClient.prototype.list =
       '/zbay.Accounts/List',
       request,
       metadata || {},
-      methodInfo_Accounts_List);
+      methodDescriptor_Accounts_List);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Account,
+ *   !proto.zbay.Account>}
+ */
+const methodDescriptor_Accounts_Total = new grpc.web.MethodDescriptor(
+  '/zbay.Accounts/Total',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Account,
+  proto.zbay.Account,
+  /**
+   * @param {!proto.zbay.Account} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Account.deserializeBinary
+);
 
 
 /**
@@ -649,7 +860,10 @@ proto.zbay.AccountsPromiseClient.prototype.list =
  */
 const methodInfo_Accounts_Total = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Account,
-  /** @param {!proto.zbay.Account} request */
+  /**
+   * @param {!proto.zbay.Account} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -673,7 +887,7 @@ proto.zbay.AccountsClient.prototype.total =
       '/zbay.Accounts/Total',
       request,
       metadata || {},
-      methodInfo_Accounts_Total,
+      methodDescriptor_Accounts_Total,
       callback);
 };
 
@@ -692,8 +906,30 @@ proto.zbay.AccountsPromiseClient.prototype.total =
       '/zbay.Accounts/Total',
       request,
       metadata || {},
-      methodInfo_Accounts_Total);
+      methodDescriptor_Accounts_Total);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.PayMap,
+ *   !proto.zbay.PayMap>}
+ */
+const methodDescriptor_Accounts_Alipay = new grpc.web.MethodDescriptor(
+  '/zbay.Accounts/Alipay',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.PayMap,
+  proto.zbay.PayMap,
+  /**
+   * @param {!proto.zbay.PayMap} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.PayMap.deserializeBinary
+);
 
 
 /**
@@ -704,7 +940,10 @@ proto.zbay.AccountsPromiseClient.prototype.total =
  */
 const methodInfo_Accounts_Alipay = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.PayMap,
-  /** @param {!proto.zbay.PayMap} request */
+  /**
+   * @param {!proto.zbay.PayMap} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -728,7 +967,7 @@ proto.zbay.AccountsClient.prototype.alipay =
       '/zbay.Accounts/Alipay',
       request,
       metadata || {},
-      methodInfo_Accounts_Alipay,
+      methodDescriptor_Accounts_Alipay,
       callback);
 };
 
@@ -747,8 +986,30 @@ proto.zbay.AccountsPromiseClient.prototype.alipay =
       '/zbay.Accounts/Alipay',
       request,
       metadata || {},
-      methodInfo_Accounts_Alipay);
+      methodDescriptor_Accounts_Alipay);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.PayMap,
+ *   !proto.zbay.PayMap>}
+ */
+const methodDescriptor_Accounts_WechatPay = new grpc.web.MethodDescriptor(
+  '/zbay.Accounts/WechatPay',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.PayMap,
+  proto.zbay.PayMap,
+  /**
+   * @param {!proto.zbay.PayMap} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.PayMap.deserializeBinary
+);
 
 
 /**
@@ -759,7 +1020,10 @@ proto.zbay.AccountsPromiseClient.prototype.alipay =
  */
 const methodInfo_Accounts_WechatPay = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.PayMap,
-  /** @param {!proto.zbay.PayMap} request */
+  /**
+   * @param {!proto.zbay.PayMap} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -783,7 +1047,7 @@ proto.zbay.AccountsClient.prototype.wechatPay =
       '/zbay.Accounts/WechatPay',
       request,
       metadata || {},
-      methodInfo_Accounts_WechatPay,
+      methodDescriptor_Accounts_WechatPay,
       callback);
 };
 
@@ -802,7 +1066,7 @@ proto.zbay.AccountsPromiseClient.prototype.wechatPay =
       '/zbay.Accounts/WechatPay',
       request,
       metadata || {},
-      methodInfo_Accounts_WechatPay);
+      methodDescriptor_Accounts_WechatPay);
 };
 
 

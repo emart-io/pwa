@@ -11,15 +11,15 @@ import { CommoditiesPromiseClient, CouponsPromiseClient, CommentsPromiseClient }
 export class ApiService {
   metaData = { 'authorization-token': 'admin' };
 
-  commodityClient = new CommoditiesPromiseClient(environment.apiUrl, null, null);
-  userClient = new UsersPromiseClient(environment.apiUrl, null, null);
-  couponClient = new CouponsPromiseClient(environment.apiUrl, null, null);
-  orderClient = new OrdersPromiseClient(environment.apiUrl, null, null);
-  addressClient = new AddressesPromiseClient(environment.apiUrl, null, null);
-  messageClient = new MessagesPromiseClient(environment.apiUrl, null, null);
-  accountClient = new AccountsPromiseClient(environment.apiUrl, null, null);
-  commentClient = new CommentsPromiseClient(environment.apiUrl, null, null);
-  memoClient = new MemosPromiseClient(environment.apiUrl, null, null);
+  commodityClient = new CommoditiesPromiseClient(environment.apiUrl);
+  userClient = new UsersPromiseClient(environment.apiUrl);
+  couponClient = new CouponsPromiseClient(environment.apiUrl);
+  orderClient = new OrdersPromiseClient(environment.apiUrl);
+  addressClient = new AddressesPromiseClient(environment.apiUrl);
+  messageClient = new MessagesPromiseClient(environment.apiUrl);
+  accountClient = new AccountsPromiseClient(environment.apiUrl);
+  commentClient = new CommentsPromiseClient(environment.apiUrl);
+  memoClient = new MemosPromiseClient(environment.apiUrl);
 
   constructor() { }
 

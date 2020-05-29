@@ -4,6 +4,7 @@
   "theme_color": "#fafafa",
   "background_color": "#fafafa",
   "display": "standalone",
+  "orientation": "portrait",
   "scope": "/",
   "start_url": "/?from=homescreen",
   "icons": [

@@ -7,6 +7,10 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 
+/* eslint-disable */
+// @ts-nocheck
+
+
 
 const grpc = {};
 grpc.web = require('grpc-web');
@@ -45,16 +49,6 @@ proto.zbay.CommoditiesClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
 
 
@@ -81,17 +75,29 @@ proto.zbay.CommoditiesPromiseClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Commodity,
+ *   !proto.zbay.Commodity>}
+ */
+const methodDescriptor_Commodities_Add = new grpc.web.MethodDescriptor(
+  '/zbay.Commodities/Add',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Commodity,
+  proto.zbay.Commodity,
+  /**
+   * @param {!proto.zbay.Commodity} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Commodity.deserializeBinary
+);
 
 
 /**
@@ -102,7 +108,10 @@ proto.zbay.CommoditiesPromiseClient =
  */
 const methodInfo_Commodities_Add = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Commodity,
-  /** @param {!proto.zbay.Commodity} request */
+  /**
+   * @param {!proto.zbay.Commodity} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -126,7 +135,7 @@ proto.zbay.CommoditiesClient.prototype.add =
       '/zbay.Commodities/Add',
       request,
       metadata || {},
-      methodInfo_Commodities_Add,
+      methodDescriptor_Commodities_Add,
       callback);
 };
 
@@ -145,8 +154,30 @@ proto.zbay.CommoditiesPromiseClient.prototype.add =
       '/zbay.Commodities/Add',
       request,
       metadata || {},
-      methodInfo_Commodities_Add);
+      methodDescriptor_Commodities_Add);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Commodity,
+ *   !proto.zbay.Commodity>}
+ */
+const methodDescriptor_Commodities_Get = new grpc.web.MethodDescriptor(
+  '/zbay.Commodities/Get',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Commodity,
+  proto.zbay.Commodity,
+  /**
+   * @param {!proto.zbay.Commodity} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Commodity.deserializeBinary
+);
 
 
 /**
@@ -157,7 +188,10 @@ proto.zbay.CommoditiesPromiseClient.prototype.add =
  */
 const methodInfo_Commodities_Get = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Commodity,
-  /** @param {!proto.zbay.Commodity} request */
+  /**
+   * @param {!proto.zbay.Commodity} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -181,7 +215,7 @@ proto.zbay.CommoditiesClient.prototype.get =
       '/zbay.Commodities/Get',
       request,
       metadata || {},
-      methodInfo_Commodities_Get,
+      methodDescriptor_Commodities_Get,
       callback);
 };
 
@@ -200,8 +234,30 @@ proto.zbay.CommoditiesPromiseClient.prototype.get =
       '/zbay.Commodities/Get',
       request,
       metadata || {},
-      methodInfo_Commodities_Get);
+      methodDescriptor_Commodities_Get);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Commodity,
+ *   !proto.zbay.Commodity>}
+ */
+const methodDescriptor_Commodities_Update = new grpc.web.MethodDescriptor(
+  '/zbay.Commodities/Update',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Commodity,
+  proto.zbay.Commodity,
+  /**
+   * @param {!proto.zbay.Commodity} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Commodity.deserializeBinary
+);
 
 
 /**
@@ -212,7 +268,10 @@ proto.zbay.CommoditiesPromiseClient.prototype.get =
  */
 const methodInfo_Commodities_Update = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Commodity,
-  /** @param {!proto.zbay.Commodity} request */
+  /**
+   * @param {!proto.zbay.Commodity} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -236,7 +295,7 @@ proto.zbay.CommoditiesClient.prototype.update =
       '/zbay.Commodities/Update',
       request,
       metadata || {},
-      methodInfo_Commodities_Update,
+      methodDescriptor_Commodities_Update,
       callback);
 };
 
@@ -255,8 +314,30 @@ proto.zbay.CommoditiesPromiseClient.prototype.update =
       '/zbay.Commodities/Update',
       request,
       metadata || {},
-      methodInfo_Commodities_Update);
+      methodDescriptor_Commodities_Update);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.User,
+ *   !proto.zbay.Commodity>}
+ */
+const methodDescriptor_Commodities_List = new grpc.web.MethodDescriptor(
+  '/zbay.Commodities/List',
+  grpc.web.MethodType.SERVER_STREAMING,
+  user_pb.User,
+  proto.zbay.Commodity,
+  /**
+   * @param {!proto.zbay.User} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Commodity.deserializeBinary
+);
 
 
 /**
@@ -267,7 +348,10 @@ proto.zbay.CommoditiesPromiseClient.prototype.update =
  */
 const methodInfo_Commodities_List = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Commodity,
-  /** @param {!proto.zbay.User} request */
+  /**
+   * @param {!proto.zbay.User} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -288,7 +372,7 @@ proto.zbay.CommoditiesClient.prototype.list =
       '/zbay.Commodities/List',
       request,
       metadata || {},
-      methodInfo_Commodities_List);
+      methodDescriptor_Commodities_List);
 };
 
 
@@ -305,8 +389,30 @@ proto.zbay.CommoditiesPromiseClient.prototype.list =
       '/zbay.Commodities/List',
       request,
       metadata || {},
-      methodInfo_Commodities_List);
+      methodDescriptor_Commodities_List);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.google.protobuf.StringValue,
+ *   !proto.zbay.Commodity>}
+ */
+const methodDescriptor_Commodities_Search = new grpc.web.MethodDescriptor(
+  '/zbay.Commodities/Search',
+  grpc.web.MethodType.SERVER_STREAMING,
+  google_protobuf_wrappers_pb.StringValue,
+  proto.zbay.Commodity,
+  /**
+   * @param {!proto.google.protobuf.StringValue} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Commodity.deserializeBinary
+);
 
 
 /**
@@ -317,7 +423,10 @@ proto.zbay.CommoditiesPromiseClient.prototype.list =
  */
 const methodInfo_Commodities_Search = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Commodity,
-  /** @param {!proto.google.protobuf.StringValue} request */
+  /**
+   * @param {!proto.google.protobuf.StringValue} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -338,7 +447,7 @@ proto.zbay.CommoditiesClient.prototype.search =
       '/zbay.Commodities/Search',
       request,
       metadata || {},
-      methodInfo_Commodities_Search);
+      methodDescriptor_Commodities_Search);
 };
 
 
@@ -355,8 +464,30 @@ proto.zbay.CommoditiesPromiseClient.prototype.search =
       '/zbay.Commodities/Search',
       request,
       metadata || {},
-      methodInfo_Commodities_Search);
+      methodDescriptor_Commodities_Search);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Commodity,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_Commodities_Delete = new grpc.web.MethodDescriptor(
+  '/zbay.Commodities/Delete',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Commodity,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.zbay.Commodity} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
 
 
 /**
@@ -367,7 +498,10 @@ proto.zbay.CommoditiesPromiseClient.prototype.search =
  */
 const methodInfo_Commodities_Delete = new grpc.web.AbstractClientBase.MethodInfo(
   google_protobuf_empty_pb.Empty,
-  /** @param {!proto.zbay.Commodity} request */
+  /**
+   * @param {!proto.zbay.Commodity} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -391,7 +525,7 @@ proto.zbay.CommoditiesClient.prototype.delete =
       '/zbay.Commodities/Delete',
       request,
       metadata || {},
-      methodInfo_Commodities_Delete,
+      methodDescriptor_Commodities_Delete,
       callback);
 };
 
@@ -410,7 +544,7 @@ proto.zbay.CommoditiesPromiseClient.prototype.delete =
       '/zbay.Commodities/Delete',
       request,
       metadata || {},
-      methodInfo_Commodities_Delete);
+      methodDescriptor_Commodities_Delete);
 };
 
 
@@ -437,16 +571,6 @@ proto.zbay.CouponsClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
 
 
@@ -473,17 +597,29 @@ proto.zbay.CouponsPromiseClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Coupon,
+ *   !proto.zbay.Coupon>}
+ */
+const methodDescriptor_Coupons_Add = new grpc.web.MethodDescriptor(
+  '/zbay.Coupons/Add',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Coupon,
+  proto.zbay.Coupon,
+  /**
+   * @param {!proto.zbay.Coupon} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Coupon.deserializeBinary
+);
 
 
 /**
@@ -494,7 +630,10 @@ proto.zbay.CouponsPromiseClient =
  */
 const methodInfo_Coupons_Add = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Coupon,
-  /** @param {!proto.zbay.Coupon} request */
+  /**
+   * @param {!proto.zbay.Coupon} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -518,7 +657,7 @@ proto.zbay.CouponsClient.prototype.add =
       '/zbay.Coupons/Add',
       request,
       metadata || {},
-      methodInfo_Coupons_Add,
+      methodDescriptor_Coupons_Add,
       callback);
 };
 
@@ -537,8 +676,30 @@ proto.zbay.CouponsPromiseClient.prototype.add =
       '/zbay.Coupons/Add',
       request,
       metadata || {},
-      methodInfo_Coupons_Add);
+      methodDescriptor_Coupons_Add);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Coupon,
+ *   !proto.zbay.Coupon>}
+ */
+const methodDescriptor_Coupons_Get = new grpc.web.MethodDescriptor(
+  '/zbay.Coupons/Get',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Coupon,
+  proto.zbay.Coupon,
+  /**
+   * @param {!proto.zbay.Coupon} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Coupon.deserializeBinary
+);
 
 
 /**
@@ -549,7 +710,10 @@ proto.zbay.CouponsPromiseClient.prototype.add =
  */
 const methodInfo_Coupons_Get = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Coupon,
-  /** @param {!proto.zbay.Coupon} request */
+  /**
+   * @param {!proto.zbay.Coupon} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -573,7 +737,7 @@ proto.zbay.CouponsClient.prototype.get =
       '/zbay.Coupons/Get',
       request,
       metadata || {},
-      methodInfo_Coupons_Get,
+      methodDescriptor_Coupons_Get,
       callback);
 };
 
@@ -592,8 +756,30 @@ proto.zbay.CouponsPromiseClient.prototype.get =
       '/zbay.Coupons/Get',
       request,
       metadata || {},
-      methodInfo_Coupons_Get);
+      methodDescriptor_Coupons_Get);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Coupon,
+ *   !proto.zbay.Coupon>}
+ */
+const methodDescriptor_Coupons_Update = new grpc.web.MethodDescriptor(
+  '/zbay.Coupons/Update',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Coupon,
+  proto.zbay.Coupon,
+  /**
+   * @param {!proto.zbay.Coupon} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Coupon.deserializeBinary
+);
 
 
 /**
@@ -604,7 +790,10 @@ proto.zbay.CouponsPromiseClient.prototype.get =
  */
 const methodInfo_Coupons_Update = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Coupon,
-  /** @param {!proto.zbay.Coupon} request */
+  /**
+   * @param {!proto.zbay.Coupon} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -628,7 +817,7 @@ proto.zbay.CouponsClient.prototype.update =
       '/zbay.Coupons/Update',
       request,
       metadata || {},
-      methodInfo_Coupons_Update,
+      methodDescriptor_Coupons_Update,
       callback);
 };
 
@@ -647,8 +836,30 @@ proto.zbay.CouponsPromiseClient.prototype.update =
       '/zbay.Coupons/Update',
       request,
       metadata || {},
-      methodInfo_Coupons_Update);
+      methodDescriptor_Coupons_Update);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Coupon,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_Coupons_Delete = new grpc.web.MethodDescriptor(
+  '/zbay.Coupons/Delete',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Coupon,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.zbay.Coupon} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
 
 
 /**
@@ -659,7 +870,10 @@ proto.zbay.CouponsPromiseClient.prototype.update =
  */
 const methodInfo_Coupons_Delete = new grpc.web.AbstractClientBase.MethodInfo(
   google_protobuf_empty_pb.Empty,
-  /** @param {!proto.zbay.Coupon} request */
+  /**
+   * @param {!proto.zbay.Coupon} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -683,7 +897,7 @@ proto.zbay.CouponsClient.prototype.delete =
       '/zbay.Coupons/Delete',
       request,
       metadata || {},
-      methodInfo_Coupons_Delete,
+      methodDescriptor_Coupons_Delete,
       callback);
 };
 
@@ -702,8 +916,30 @@ proto.zbay.CouponsPromiseClient.prototype.delete =
       '/zbay.Coupons/Delete',
       request,
       metadata || {},
-      methodInfo_Coupons_Delete);
+      methodDescriptor_Coupons_Delete);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.User,
+ *   !proto.zbay.Coupon>}
+ */
+const methodDescriptor_Coupons_List = new grpc.web.MethodDescriptor(
+  '/zbay.Coupons/List',
+  grpc.web.MethodType.SERVER_STREAMING,
+  user_pb.User,
+  proto.zbay.Coupon,
+  /**
+   * @param {!proto.zbay.User} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Coupon.deserializeBinary
+);
 
 
 /**
@@ -714,7 +950,10 @@ proto.zbay.CouponsPromiseClient.prototype.delete =
  */
 const methodInfo_Coupons_List = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Coupon,
-  /** @param {!proto.zbay.User} request */
+  /**
+   * @param {!proto.zbay.User} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -735,7 +974,7 @@ proto.zbay.CouponsClient.prototype.list =
       '/zbay.Coupons/List',
       request,
       metadata || {},
-      methodInfo_Coupons_List);
+      methodDescriptor_Coupons_List);
 };
 
 
@@ -752,7 +991,7 @@ proto.zbay.CouponsPromiseClient.prototype.list =
       '/zbay.Coupons/List',
       request,
       metadata || {},
-      methodInfo_Coupons_List);
+      methodDescriptor_Coupons_List);
 };
 
 
@@ -779,16 +1018,6 @@ proto.zbay.CommentsClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
 
 
@@ -815,17 +1044,29 @@ proto.zbay.CommentsPromiseClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Comment,
+ *   !proto.zbay.Comment>}
+ */
+const methodDescriptor_Comments_Add = new grpc.web.MethodDescriptor(
+  '/zbay.Comments/Add',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Comment,
+  proto.zbay.Comment,
+  /**
+   * @param {!proto.zbay.Comment} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Comment.deserializeBinary
+);
 
 
 /**
@@ -836,7 +1077,10 @@ proto.zbay.CommentsPromiseClient =
  */
 const methodInfo_Comments_Add = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Comment,
-  /** @param {!proto.zbay.Comment} request */
+  /**
+   * @param {!proto.zbay.Comment} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -860,7 +1104,7 @@ proto.zbay.CommentsClient.prototype.add =
       '/zbay.Comments/Add',
       request,
       metadata || {},
-      methodInfo_Comments_Add,
+      methodDescriptor_Comments_Add,
       callback);
 };
 
@@ -879,8 +1123,30 @@ proto.zbay.CommentsPromiseClient.prototype.add =
       '/zbay.Comments/Add',
       request,
       metadata || {},
-      methodInfo_Comments_Add);
+      methodDescriptor_Comments_Add);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Comment,
+ *   !proto.zbay.Comment>}
+ */
+const methodDescriptor_Comments_Get = new grpc.web.MethodDescriptor(
+  '/zbay.Comments/Get',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Comment,
+  proto.zbay.Comment,
+  /**
+   * @param {!proto.zbay.Comment} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Comment.deserializeBinary
+);
 
 
 /**
@@ -891,7 +1157,10 @@ proto.zbay.CommentsPromiseClient.prototype.add =
  */
 const methodInfo_Comments_Get = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Comment,
-  /** @param {!proto.zbay.Comment} request */
+  /**
+   * @param {!proto.zbay.Comment} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -915,7 +1184,7 @@ proto.zbay.CommentsClient.prototype.get =
       '/zbay.Comments/Get',
       request,
       metadata || {},
-      methodInfo_Comments_Get,
+      methodDescriptor_Comments_Get,
       callback);
 };
 
@@ -934,8 +1203,30 @@ proto.zbay.CommentsPromiseClient.prototype.get =
       '/zbay.Comments/Get',
       request,
       metadata || {},
-      methodInfo_Comments_Get);
+      methodDescriptor_Comments_Get);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Comment,
+ *   !proto.zbay.Comment>}
+ */
+const methodDescriptor_Comments_Update = new grpc.web.MethodDescriptor(
+  '/zbay.Comments/Update',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Comment,
+  proto.zbay.Comment,
+  /**
+   * @param {!proto.zbay.Comment} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Comment.deserializeBinary
+);
 
 
 /**
@@ -946,7 +1237,10 @@ proto.zbay.CommentsPromiseClient.prototype.get =
  */
 const methodInfo_Comments_Update = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Comment,
-  /** @param {!proto.zbay.Comment} request */
+  /**
+   * @param {!proto.zbay.Comment} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -970,7 +1264,7 @@ proto.zbay.CommentsClient.prototype.update =
       '/zbay.Comments/Update',
       request,
       metadata || {},
-      methodInfo_Comments_Update,
+      methodDescriptor_Comments_Update,
       callback);
 };
 
@@ -989,8 +1283,30 @@ proto.zbay.CommentsPromiseClient.prototype.update =
       '/zbay.Comments/Update',
       request,
       metadata || {},
-      methodInfo_Comments_Update);
+      methodDescriptor_Comments_Update);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Comment,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_Comments_Delete = new grpc.web.MethodDescriptor(
+  '/zbay.Comments/Delete',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Comment,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.zbay.Comment} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
 
 
 /**
@@ -1001,7 +1317,10 @@ proto.zbay.CommentsPromiseClient.prototype.update =
  */
 const methodInfo_Comments_Delete = new grpc.web.AbstractClientBase.MethodInfo(
   google_protobuf_empty_pb.Empty,
-  /** @param {!proto.zbay.Comment} request */
+  /**
+   * @param {!proto.zbay.Comment} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1025,7 +1344,7 @@ proto.zbay.CommentsClient.prototype.delete =
       '/zbay.Comments/Delete',
       request,
       metadata || {},
-      methodInfo_Comments_Delete,
+      methodDescriptor_Comments_Delete,
       callback);
 };
 
@@ -1044,8 +1363,30 @@ proto.zbay.CommentsPromiseClient.prototype.delete =
       '/zbay.Comments/Delete',
       request,
       metadata || {},
-      methodInfo_Comments_Delete);
+      methodDescriptor_Comments_Delete);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Commodity,
+ *   !proto.zbay.Comment>}
+ */
+const methodDescriptor_Comments_List = new grpc.web.MethodDescriptor(
+  '/zbay.Comments/List',
+  grpc.web.MethodType.SERVER_STREAMING,
+  proto.zbay.Commodity,
+  proto.zbay.Comment,
+  /**
+   * @param {!proto.zbay.Commodity} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Comment.deserializeBinary
+);
 
 
 /**
@@ -1056,7 +1397,10 @@ proto.zbay.CommentsPromiseClient.prototype.delete =
  */
 const methodInfo_Comments_List = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Comment,
-  /** @param {!proto.zbay.Commodity} request */
+  /**
+   * @param {!proto.zbay.Commodity} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1077,7 +1421,7 @@ proto.zbay.CommentsClient.prototype.list =
       '/zbay.Comments/List',
       request,
       metadata || {},
-      methodInfo_Comments_List);
+      methodDescriptor_Comments_List);
 };
 
 
@@ -1094,7 +1438,7 @@ proto.zbay.CommentsPromiseClient.prototype.list =
       '/zbay.Comments/List',
       request,
       metadata || {},
-      methodInfo_Comments_List);
+      methodDescriptor_Comments_List);
 };
 
 

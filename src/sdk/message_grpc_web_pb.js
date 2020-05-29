@@ -7,6 +7,10 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 
+/* eslint-disable */
+// @ts-nocheck
+
+
 
 const grpc = {};
 grpc.web = require('grpc-web');
@@ -43,16 +47,6 @@ proto.zbay.MessagesClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
 
 
@@ -79,17 +73,29 @@ proto.zbay.MessagesPromiseClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Message,
+ *   !proto.zbay.Message>}
+ */
+const methodDescriptor_Messages_Add = new grpc.web.MethodDescriptor(
+  '/zbay.Messages/Add',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Message,
+  proto.zbay.Message,
+  /**
+   * @param {!proto.zbay.Message} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Message.deserializeBinary
+);
 
 
 /**
@@ -100,7 +106,10 @@ proto.zbay.MessagesPromiseClient =
  */
 const methodInfo_Messages_Add = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Message,
-  /** @param {!proto.zbay.Message} request */
+  /**
+   * @param {!proto.zbay.Message} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -124,7 +133,7 @@ proto.zbay.MessagesClient.prototype.add =
       '/zbay.Messages/Add',
       request,
       metadata || {},
-      methodInfo_Messages_Add,
+      methodDescriptor_Messages_Add,
       callback);
 };
 
@@ -143,8 +152,30 @@ proto.zbay.MessagesPromiseClient.prototype.add =
       '/zbay.Messages/Add',
       request,
       metadata || {},
-      methodInfo_Messages_Add);
+      methodDescriptor_Messages_Add);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Message,
+ *   !proto.zbay.Message>}
+ */
+const methodDescriptor_Messages_List = new grpc.web.MethodDescriptor(
+  '/zbay.Messages/List',
+  grpc.web.MethodType.SERVER_STREAMING,
+  proto.zbay.Message,
+  proto.zbay.Message,
+  /**
+   * @param {!proto.zbay.Message} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Message.deserializeBinary
+);
 
 
 /**
@@ -155,7 +186,10 @@ proto.zbay.MessagesPromiseClient.prototype.add =
  */
 const methodInfo_Messages_List = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Message,
-  /** @param {!proto.zbay.Message} request */
+  /**
+   * @param {!proto.zbay.Message} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -176,7 +210,7 @@ proto.zbay.MessagesClient.prototype.list =
       '/zbay.Messages/List',
       request,
       metadata || {},
-      methodInfo_Messages_List);
+      methodDescriptor_Messages_List);
 };
 
 
@@ -193,8 +227,30 @@ proto.zbay.MessagesPromiseClient.prototype.list =
       '/zbay.Messages/List',
       request,
       metadata || {},
-      methodInfo_Messages_List);
+      methodDescriptor_Messages_List);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.User,
+ *   !proto.zbay.Message>}
+ */
+const methodDescriptor_Messages_GroupBy = new grpc.web.MethodDescriptor(
+  '/zbay.Messages/GroupBy',
+  grpc.web.MethodType.SERVER_STREAMING,
+  user_pb.User,
+  proto.zbay.Message,
+  /**
+   * @param {!proto.zbay.User} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Message.deserializeBinary
+);
 
 
 /**
@@ -205,7 +261,10 @@ proto.zbay.MessagesPromiseClient.prototype.list =
  */
 const methodInfo_Messages_GroupBy = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Message,
-  /** @param {!proto.zbay.User} request */
+  /**
+   * @param {!proto.zbay.User} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -226,7 +285,7 @@ proto.zbay.MessagesClient.prototype.groupBy =
       '/zbay.Messages/GroupBy',
       request,
       metadata || {},
-      methodInfo_Messages_GroupBy);
+      methodDescriptor_Messages_GroupBy);
 };
 
 
@@ -243,8 +302,30 @@ proto.zbay.MessagesPromiseClient.prototype.groupBy =
       '/zbay.Messages/GroupBy',
       request,
       metadata || {},
-      methodInfo_Messages_GroupBy);
+      methodDescriptor_Messages_GroupBy);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Message,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_Messages_Send = new grpc.web.MethodDescriptor(
+  '/zbay.Messages/Send',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Message,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.zbay.Message} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
 
 
 /**
@@ -255,7 +336,10 @@ proto.zbay.MessagesPromiseClient.prototype.groupBy =
  */
 const methodInfo_Messages_Send = new grpc.web.AbstractClientBase.MethodInfo(
   google_protobuf_empty_pb.Empty,
-  /** @param {!proto.zbay.Message} request */
+  /**
+   * @param {!proto.zbay.Message} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -279,7 +363,7 @@ proto.zbay.MessagesClient.prototype.send =
       '/zbay.Messages/Send',
       request,
       metadata || {},
-      methodInfo_Messages_Send,
+      methodDescriptor_Messages_Send,
       callback);
 };
 
@@ -298,8 +382,30 @@ proto.zbay.MessagesPromiseClient.prototype.send =
       '/zbay.Messages/Send',
       request,
       metadata || {},
-      methodInfo_Messages_Send);
+      methodDescriptor_Messages_Send);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.User,
+ *   !proto.zbay.Message>}
+ */
+const methodDescriptor_Messages_Receive = new grpc.web.MethodDescriptor(
+  '/zbay.Messages/Receive',
+  grpc.web.MethodType.SERVER_STREAMING,
+  user_pb.User,
+  proto.zbay.Message,
+  /**
+   * @param {!proto.zbay.User} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Message.deserializeBinary
+);
 
 
 /**
@@ -310,7 +416,10 @@ proto.zbay.MessagesPromiseClient.prototype.send =
  */
 const methodInfo_Messages_Receive = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Message,
-  /** @param {!proto.zbay.User} request */
+  /**
+   * @param {!proto.zbay.User} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -331,7 +440,7 @@ proto.zbay.MessagesClient.prototype.receive =
       '/zbay.Messages/Receive',
       request,
       metadata || {},
-      methodInfo_Messages_Receive);
+      methodDescriptor_Messages_Receive);
 };
 
 
@@ -348,8 +457,30 @@ proto.zbay.MessagesPromiseClient.prototype.receive =
       '/zbay.Messages/Receive',
       request,
       metadata || {},
-      methodInfo_Messages_Receive);
+      methodDescriptor_Messages_Receive);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Topic,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_Messages_Publish = new grpc.web.MethodDescriptor(
+  '/zbay.Messages/Publish',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.Topic,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.zbay.Topic} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
 
 
 /**
@@ -360,7 +491,10 @@ proto.zbay.MessagesPromiseClient.prototype.receive =
  */
 const methodInfo_Messages_Publish = new grpc.web.AbstractClientBase.MethodInfo(
   google_protobuf_empty_pb.Empty,
-  /** @param {!proto.zbay.Topic} request */
+  /**
+   * @param {!proto.zbay.Topic} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -384,7 +518,7 @@ proto.zbay.MessagesClient.prototype.publish =
       '/zbay.Messages/Publish',
       request,
       metadata || {},
-      methodInfo_Messages_Publish,
+      methodDescriptor_Messages_Publish,
       callback);
 };
 
@@ -403,8 +537,30 @@ proto.zbay.MessagesPromiseClient.prototype.publish =
       '/zbay.Messages/Publish',
       request,
       metadata || {},
-      methodInfo_Messages_Publish);
+      methodDescriptor_Messages_Publish);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.Topic,
+ *   !proto.zbay.Topic>}
+ */
+const methodDescriptor_Messages_Subscribe = new grpc.web.MethodDescriptor(
+  '/zbay.Messages/Subscribe',
+  grpc.web.MethodType.SERVER_STREAMING,
+  proto.zbay.Topic,
+  proto.zbay.Topic,
+  /**
+   * @param {!proto.zbay.Topic} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.Topic.deserializeBinary
+);
 
 
 /**
@@ -415,7 +571,10 @@ proto.zbay.MessagesPromiseClient.prototype.publish =
  */
 const methodInfo_Messages_Subscribe = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.Topic,
-  /** @param {!proto.zbay.Topic} request */
+  /**
+   * @param {!proto.zbay.Topic} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -436,7 +595,7 @@ proto.zbay.MessagesClient.prototype.subscribe =
       '/zbay.Messages/Subscribe',
       request,
       metadata || {},
-      methodInfo_Messages_Subscribe);
+      methodDescriptor_Messages_Subscribe);
 };
 
 
@@ -453,7 +612,7 @@ proto.zbay.MessagesPromiseClient.prototype.subscribe =
       '/zbay.Messages/Subscribe',
       request,
       metadata || {},
-      methodInfo_Messages_Subscribe);
+      methodDescriptor_Messages_Subscribe);
 };
 
 
