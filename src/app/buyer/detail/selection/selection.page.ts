@@ -36,7 +36,7 @@ export class SelectionPage {
       let requestOrder = new Order();
       requestOrder.snapshot = this.order.snapshot;
       requestOrder.status = '待成团';
-      let stream = apiService.orderClient.listByOrder(requestOrder, apiService.metaData);
+      let stream = apiService.orderClient.listByOrder(requestOrder);
       stream.on('data', response => {
         this.partnerOrders.push(response);
         console.log(response.toObject());
@@ -77,7 +77,7 @@ export class SelectionPage {
   getUserById(userId: string) {
     let user = new User();
     user.id = userId;
-    apiService.userClient.get(user, apiService.metaData).then((user) => {
+    apiService.userClient.get(user).then((user) => {
       this.users[userId] = user;
     }).catch((err) => {
       utilsService.alert(JSON.stringify(err));

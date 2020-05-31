@@ -19,14 +19,14 @@ export class SaveComponent {
     }
     this.memo.userId = utilsService.getUser().id;
     if (this.memo.id != "") {
-      apiService.memoClient.update(this.memo, apiService.metaData).then(memo => {
+      apiService.memoClient.update(this.memo).then(memo => {
         this.memo = memo;
         this.popoverController.dismiss(memo);
       }).catch(err => {
         utilsService.alert(err.message);
       });
     } else {
-      apiService.memoClient.add(this.memo, apiService.metaData).then(memo => {
+      apiService.memoClient.add(this.memo).then(memo => {
         this.memo = memo;
         this.popoverController.dismiss(memo);
       }).catch(err => {

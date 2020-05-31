@@ -18,7 +18,7 @@ export class CommodityPage {
 
   ionViewWillEnter() {
     this.commodities = []
-    let stream = apiService.commodityClient.list(utilsService.getUser(), apiService.metaData);
+    let stream = apiService.commodityClient.list(utilsService.getUser());
     stream.on('data', response => {
       this.commodities.push(response);
       console.log(response.toObject())
@@ -35,7 +35,7 @@ export class CommodityPage {
   offline(commodity: Commodity) {
     utilsService.confirm('确认下线此商品？', () => {
       commodity.status = "已下线";
-      apiService.commodityClient.update(commodity, apiService.metaData).then(response => {
+      apiService.commodityClient.update(commodity).then(response => {
         this.ionViewWillEnter();
       }).catch(err => {
         utilsService.alert(JSON.stringify(err));
@@ -45,7 +45,7 @@ export class CommodityPage {
 
   delete(commodity: Commodity) {
     utilsService.confirm('确认删除此商品？建议先做下线处理', () => {
-      apiService.commodityClient.delete(commodity, apiService.metaData).then(response => {
+      apiService.commodityClient.delete(commodity).then(response => {
         this.ionViewWillEnter();
       }).catch(err => {
         utilsService.alert(JSON.stringify(err));

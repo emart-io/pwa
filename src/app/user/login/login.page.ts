@@ -20,7 +20,7 @@ export class LoginPage {
     if (!this.user.telephone) {
       return utilsService.alert('请输入手机号码');
     }
-    apiService.userClient.login(this.user, apiService.metaData).then(user => {
+    apiService.userClient.login(this.user).then(user => {
       utilsService.setUser(user);
       utilsService.events('user:login').emit(user.name);
       //this.router.navigateByUrl('/tabs/my');

@@ -21,7 +21,7 @@ export class AddPage {
 
   ionViewWillEnter() {
     this.commodities = []
-    let stream = apiService.commodityClient.list(utilsService.storage.get('user', User), apiService.metaData);
+    let stream = apiService.commodityClient.list(utilsService.storage.get('user', User));
     stream.on('data', response => {
       this.commodities.push(response);
       console.log(response.toObject())
@@ -45,7 +45,7 @@ export class AddPage {
     tEnd.fromDate(new Date(this.end));
     this.coupon.end = tEnd;
 
-    apiService.couponClient.add(this.coupon, apiService.metaData).then(response => {
+    apiService.couponClient.add(this.coupon).then(response => {
       console.log(response);
       this.router.navigateByUrl('/coupon');
     }).catch(err => {

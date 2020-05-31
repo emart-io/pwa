@@ -44,7 +44,7 @@ export class PurchasePage {
             let pm = new PayMap();
             pm.url = 'https://api.mch.weixin.qq.com/pay/orderquery';
             pm.kvMap.set('out_trade_no', this.order.payInfo.payResult);
-            apiService.accountClient.wechatPay(pm, apiService.metaData).then(response => {
+            apiService.accountClient.wechatPay(pm).then(response => {
               if (response.kvMap.get('trade_state') == 'SUCCESS') {
                 this.commitOrder();
               } else {
@@ -73,7 +73,7 @@ export class PurchasePage {
       };
       sr.kvMap.set('method', 'alipay.trade.query')
       sr.kvMap.set('biz_content', JSON.stringify(queryBizContent));
-      apiService.accountClient.alipay(sr, apiService.metaData).then(response => {
+      apiService.accountClient.alipay(sr).then(response => {
         let queryUrl = 'https://openapi.alipay.com/gateway.do?';
         let i = 0;
         response.kvMap.forEach((value, key, map) => {
@@ -115,7 +115,7 @@ export class PurchasePage {
       return this.router.navigateByUrl('/login');
     }
     if (!utilsService.destination) {
-      let stream = apiService.addressClient.list(utilsService.getUser(), apiService.metaData);
+      let stream = apiService.addressClient.list(utilsService.getUser());
       stream.on('data', response => {
         this.order.destination = response;
         if (response.default) {
@@ -163,7 +163,7 @@ export class PurchasePage {
       sr.kvMap.set('biz_content', JSON.stringify(bizContent));
       sr.kvMap.set('method', 'alipay.trade.wap.pay');
       sr.kvMap.set('return_url', 'https://iyou.city/purchase');
-      apiService.accountClient.alipay(sr, apiService.metaData).then(response => {
+      apiService.accountClient.alipay(sr).then(response => {
         let url = 'https://openapi.alipay.com/gateway.do?';
         let i = 0;
         response.kvMap.forEach((value, key, map) => {
@@ -190,7 +190,7 @@ export class PurchasePage {
       pm.kvMap.set('total_fee', this.order.amount + '');
       pm.kvMap.set('out_trade_no', 'daji-' + new Date().getTime());
 
-      apiService.accountClient.wechatPay(pm, apiService.metaData).then(response => {
+      apiService.accountClient.wechatPay(pm).then(response => {
         // redirect_url is unstable
         let url = response.kvMap.get('mweb_url'); //+ '&redirect_url=' + encodeURIComponent('https://iyou.city/purchase');
         console.log(url);
@@ -212,7 +212,7 @@ export class PurchasePage {
       this.order.status = '待发货';
     }
 
-    apiService.orderClient.add(this.order, apiService.metaData).then(response => {
+    apiService.orderClient.add(this.order).then(response => {
       console.log(response);
       // update partner order status
       if (this.order.groupon && this.order.groupon.orderIdsList.length == 1) {
@@ -222,7 +222,7 @@ export class PurchasePage {
         groupon.orderIdsList.push(response.id);
         partnerOrder.groupon = groupon;
         partnerOrder.status = '待发货';
-        apiService.orderClient.update(partnerOrder, apiService.metaData).then().catch(err => {
+        apiService.orderClient.update(partnerOrder).then().catch(err => {
           utilsService.alert(JSON.stringify(err));
         })
       }

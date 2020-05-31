@@ -21,7 +21,7 @@ export class MessagePage {
     if (!utilsService.getUser()) {
       return this.router.navigateByUrl('/login');
     }
-    let stream = apiService.messageClient.groupBy(utilsService.getUser(), apiService.metaData);
+    let stream = apiService.messageClient.groupBy(utilsService.getUser());
     stream.on('data', response => {
       if (!this.messages.some(item => item.from == response.from)) {
         this.messages.push(response);
@@ -36,7 +36,7 @@ export class MessagePage {
   getUserById(userId: string) {
     let user = new User();
     user.id = userId;
-    apiService.userClient.get(user, apiService.metaData).then(user => {
+    apiService.userClient.get(user).then(user => {
       this.users[userId] = user;
     }).catch(err => {
       utilsService.alert(JSON.stringify(err));

@@ -27,11 +27,11 @@ export class SignupPage {
     }
 
     this.user.id = this.user.telephone;
-    apiService.userClient.get(this.user, apiService.metaData).then(user => {
+    apiService.userClient.get(this.user).then(user => {
       utilsService.alert('用户已存在');
     }).catch(err => {
       if (<string>err.message.includes("no rows in result")) {
-        apiService.userClient.add(this.user, apiService.metaData).then(user => {
+        apiService.userClient.add(this.user).then(user => {
           this.location.back();
         }).catch(err => {
           utilsService.alert(err.message);

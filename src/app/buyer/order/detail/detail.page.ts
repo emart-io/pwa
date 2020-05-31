@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { Order } from '../../../../sdk/order_pb';
-import { apiService, utilsService } from '../../../providers/utils.service';
+import { utilsService } from '../../../providers/utils.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class DetailPage {
   }
 
   // async getOrderById(id: string) {
-  //   await apiService.orderClient.get(new Order(), apiService.metaData, (err: any, response: Order) => {
+  //   await apiService.orderClient.get(new Order(), (err: any, response: Order) => {
   //     return response;
   //   });
   // }

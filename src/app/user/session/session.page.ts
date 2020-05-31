@@ -32,7 +32,7 @@ export class SessionPage {
     let msg = new Message();
     msg.from = utilsService.getUser().id;
     msg.to = this.commodity.ownerId;
-    let stream = apiService.messageClient.list(msg, apiService.metaData);
+    let stream = apiService.messageClient.list(msg);
     stream.on('data', response => {
       if (!this.messages.some(item => item.id == response.id)) {
         this.messages.push(response);
@@ -49,7 +49,7 @@ export class SessionPage {
   getUserById() {
     let user = new User();
     user.id = this.commodity.ownerId;
-    apiService.userClient.get(user, apiService.metaData).then(user => {
+    apiService.userClient.get(user).then(user => {
       this.users[this.commodity.ownerId] = user;
     }).catch(err => {
       utilsService.alert(JSON.stringify(err));
@@ -62,7 +62,7 @@ export class SessionPage {
     }
     this.message.to = this.commodity.ownerId;
     this.message.from = utilsService.getUser().id;
-    apiService.messageClient.add(this.message, apiService.metaData).then(response => {
+    apiService.messageClient.add(this.message).then(response => {
       this.message.content = '';
       this.ionViewWillEnter();
     }).catch(err => {

@@ -25,7 +25,7 @@ export class MemoPage {
       return this.router.navigateByUrl('/login');
     }
     let newMemos = [];
-    let stream = apiService.memoClient.list(utilsService.getUser(), apiService.metaData);
+    let stream = apiService.memoClient.list(utilsService.getUser());
     stream.on('data', response => {
       if (!this.memos.some(item => item.id == response.id)) {
         this.memos.push(response);
@@ -58,7 +58,7 @@ export class MemoPage {
   touchstart(item: Memo) {
     this.timeOutEvent = setTimeout(() => {
       utilsService.confirm('删除' + item.title + '？', () => {
-        apiService.memoClient.delete(item, apiService.metaData).then(() => {
+        apiService.memoClient.delete(item).then(() => {
           this.ionViewWillEnter();
         }).catch(err => {
           utilsService.alert(err);

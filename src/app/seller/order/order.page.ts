@@ -35,7 +35,7 @@ export class OrderPage {
     let listQuery = new ListQuery();
     listQuery.user = utilsService.getUser();
     listQuery.status = this.selectedStatus == "全部" ? '' : this.selectedStatus;
-    let stream = apiService.orderClient.listForSeller(listQuery, apiService.metaData);
+    let stream = apiService.orderClient.listForSeller(listQuery);
     stream.on('data', response => {
       let endTime = new Date().getTime();
       this.orders.push(response);
@@ -77,7 +77,7 @@ export class OrderPage {
             }
             order.status = '待收货';
             order.express.number = alertData.name1;
-            apiService.orderClient.update(order, apiService.metaData).catch(err => {
+            apiService.orderClient.update(order).catch(err => {
               utilsService.alert(JSON.stringify(err));
             })
           }
@@ -95,7 +95,7 @@ export class OrderPage {
 
     utilsService.confirm('确定要退款给买家？', () => {
       order.status = '已退款';
-      apiService.orderClient.update(order, apiService.metaData).then(response => {
+      apiService.orderClient.update(order).then(response => {
         console.log(response);
         this.ionViewWillEnter();
       }).catch(err => {

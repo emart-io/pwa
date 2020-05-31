@@ -16,7 +16,7 @@ export class AccountPage {
 
   ionViewWillEnter() {
     this.account.userId = utilsService.getUser().id;
-    apiService.accountClient.total(this.account, apiService.metaData).then(response => {
+    apiService.accountClient.total(this.account).then(response => {
       console.log(response.toObject());
       this.account = response;
     }).catch(err => {

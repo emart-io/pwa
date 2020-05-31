@@ -47,7 +47,7 @@ export class OrderPage {
     let user = new User();
     user.id = userId;
     if (!this.users[userId]) {
-      apiService.userClient.get(user, apiService.metaData).then((user) => {
+      apiService.userClient.get(user).then((user) => {
         this.users[userId] = user;
       }).catch((err) => {
         console.log(err);
@@ -85,7 +85,7 @@ export class OrderPage {
             } else {
               order.status = '待退款';
               order.comment = alertData.refund;
-              apiService.orderClient.update(order, apiService.metaData).then(order => {
+              apiService.orderClient.update(order).then(order => {
                 console.log(order);
                 this.ionViewWillEnter();
               }).catch(err => {
@@ -101,7 +101,7 @@ export class OrderPage {
   }
 
   buyAgain(commodity: Commodity) {
-    apiService.commodityClient.get(commodity, apiService.metaData).then(commodity => {
+    apiService.commodityClient.get(commodity).then(commodity => {
       this.router.navigateByUrl('/detail', { state: commodity });
     }).catch(err => {
       utilsService.alert(JSON.stringify(err));
@@ -112,7 +112,7 @@ export class OrderPage {
     if (order.status == '待收货') {
       utilsService.confirm('确认收货后，卖家将收到付款.', () => {
         order.status = '待评价';
-        apiService.orderClient.update(order, apiService.metaData).then(order => {
+        apiService.orderClient.update(order).then(order => {
           this.ionViewWillEnter();
         }).catch(err => {
           utilsService.alert(JSON.stringify(err));
@@ -123,7 +123,7 @@ export class OrderPage {
 
   delete(order: Order) {
     utilsService.confirm('确认删除此订单？', () => {
-      apiService.orderClient.delete(order, apiService.metaData).then(() => {
+      apiService.orderClient.delete(order).then(() => {
         this.ionViewWillEnter();
       }).catch(err => {
         utilsService.alert(JSON.stringify(err));
@@ -138,7 +138,7 @@ export class OrderPage {
     let listQuery = new ListQuery();
     listQuery.user = utilsService.getUser();
     listQuery.status = this.selectedStatus == "全部" ? '' : this.selectedStatus;
-    let stream = apiService.orderClient.listForBuyer(listQuery, apiService.metaData);
+    let stream = apiService.orderClient.listForBuyer(listQuery);
     let newOrders = [];
     stream.on('data', response => {
       if (!this.orders.some(item => item.id == response.id)) {

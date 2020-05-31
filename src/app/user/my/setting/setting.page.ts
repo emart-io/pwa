@@ -45,7 +45,7 @@ export class SettingPage {
   }
 
   save() {
-    apiService.userClient.update(this.user, apiService.metaData).then(user => {
+    apiService.userClient.update(this.user).then(user => {
       //this.user = response;
       utilsService.setUser(user);
       utilsService.events('user:login').emit(user.name);

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://iyou.city',
+  apiUrl: 'https://iyou.city:443',
   //apiUrl: 'http://192.168.123.121:80',
 };
 

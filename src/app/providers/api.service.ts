@@ -9,7 +9,7 @@ import { CommoditiesPromiseClient, CouponsPromiseClient, CommentsPromiseClient }
   providedIn: 'root'
 })
 export class ApiService {
-  metaData = { 'authorization-token': 'admin' };
+  //metaData = { 'authorization-token': 'admin' };
 
   commodityClient = new CommoditiesPromiseClient(environment.apiUrl);
   userClient = new UsersPromiseClient(environment.apiUrl);

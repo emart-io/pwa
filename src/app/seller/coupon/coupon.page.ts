@@ -14,7 +14,7 @@ export class CouponPage {
 
   ionViewWillEnter() {
     this.coupons = []
-    let stream = apiService.couponClient.list(utilsService.getUser(), apiService.metaData);
+    let stream = apiService.couponClient.list(utilsService.getUser());
     stream.on('data', response => {
       this.coupons.push(response);
       console.log(response.toObject())

@@ -202,7 +202,7 @@ export class PublishPage {
         console.log(data);
         this.commodity.ownerId = utilsService.getUser().id;
         this.commodity.status = '已上线';
-        apiService.commodityClient.add(this.commodity, apiService.metaData).then(response => {
+        apiService.commodityClient.add(this.commodity).then(response => {
           console.log(response);
           // this.location.back();
           this.router.navigateByUrl('/seller');
