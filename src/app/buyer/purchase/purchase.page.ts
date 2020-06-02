@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Location } from "@angular/common";
+//import { Location } from "@angular/common";
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActionSheetController } from '@ionic/angular';
@@ -76,7 +76,7 @@ export class PurchasePage {
       apiService.accountClient.alipay(sr).then(response => {
         let queryUrl = 'https://openapi.alipay.com/gateway.do?';
         let i = 0;
-        response.kvMap.forEach((value, key, map) => {
+        response.kvMap.forEach((value, key) => {
           if (i == 0) {
             queryUrl = queryUrl + key + "=" + value;
           } else {
@@ -166,7 +166,7 @@ export class PurchasePage {
       apiService.accountClient.alipay(sr).then(response => {
         let url = 'https://openapi.alipay.com/gateway.do?';
         let i = 0;
-        response.kvMap.forEach((value, key, map) => {
+        response.kvMap.forEach((value, key) => {
           if (i == 0) {
             url = url + key + "=" + value;
           } else {
