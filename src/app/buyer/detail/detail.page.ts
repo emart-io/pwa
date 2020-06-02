@@ -84,7 +84,7 @@ export class DetailPage {
       message: {
         title: "[农村大集]上农村大集，让农货便宜到家--" + this.commodity.title,
         description: "This is description.",
-        thumb: "www/assets/icon/drawable-mdpi-icon.png",
+        thumb: "www/assets/icons/favicon.png",
         mediaTagName: "TEST-TAG-001",
         messageExt: "这是第三方带的测试字段",
         messageAction: "<action>dotalist</action>",
