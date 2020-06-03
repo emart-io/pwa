@@ -25,7 +25,7 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.setTheme(Math.random());
+      this.setTheme();
       utilsService.injector = this.injector;
       this.eventManager.addGlobalEventListener('window', 'popstate', (event) => {
         if (this.router.url.includes('/tabs/') || this.exit) {
@@ -78,21 +78,16 @@ export class AppComponent {
     });
   }
 
-  theme = { mycolor: '', mytextcolor: '' };
+  theme = { mycolor: '#10dc60', mytextcolor: '#222428' };
 
-  setTheme(random: number) {
+  setTheme() {
+    let random = Math.random();
     if (random <= 0.25) {
       this.theme = { mycolor: 'rebeccapurple', mytextcolor: '#fff' };
-      //this.statusBar.styleLightContent()
     } else if (0.25 < random && random <= 0.5) {
       this.theme = { mycolor: 'orangered', mytextcolor: '#fff' };
-      //this.statusBar.styleLightContent()
     } else if (0.5 < random && random <= 0.75) {
       this.theme = { mycolor: '#3880ff', mytextcolor: '#fff' };
-      //this.statusBar.styleLightContent()
-    } else {
-      this.theme = { mycolor: '#10dc60', mytextcolor: '#222428' };
-      //this.statusBar.styleDefault();
     }
 
     Object.keys(this.theme).forEach(k =>
