@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { StreamInterceptor } from './interceptor';
 import { environment } from '../../environments/environment';
 import { MessagesPromiseClient } from '../../sdk/message_grpc_web_pb';
 import { OrdersPromiseClient, AccountsPromiseClient } from '../../sdk/order_grpc_web_pb';
@@ -9,9 +10,10 @@ import { CommoditiesPromiseClient, CouponsPromiseClient, CommentsPromiseClient }
   providedIn: 'root'
 })
 export class ApiService {
-  //metaData = { 'authorization-token': 'admin' };
+  opts = { 'streamInterceptors': [new StreamInterceptor()] };
 
-  commodityClient = new CommoditiesPromiseClient(environment.apiUrl);
+  //@ts-ignore
+  commodityClient = new CommoditiesPromiseClient(environment.apiUrl, null, this.opts);
   userClient = new UsersPromiseClient(environment.apiUrl);
   couponClient = new CouponsPromiseClient(environment.apiUrl);
   orderClient = new OrdersPromiseClient(environment.apiUrl);
