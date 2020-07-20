@@ -11,7 +11,7 @@ import {
 export class UsersClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: User,
@@ -65,7 +65,7 @@ export class UsersClient {
 export class AddressesClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: Address,
@@ -105,7 +105,7 @@ export class AddressesClient {
 export class MemosClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: Memo,
@@ -145,7 +145,7 @@ export class MemosClient {
 export class UsersPromiseClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: User,
@@ -187,7 +187,7 @@ export class UsersPromiseClient {
 export class AddressesPromiseClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: Address,
@@ -219,7 +219,7 @@ export class AddressesPromiseClient {
 export class MemosPromiseClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: Memo,

@@ -11,7 +11,7 @@ import {
 export class MessagesClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: Message,
@@ -59,7 +59,7 @@ export class MessagesClient {
 export class MessagesPromiseClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: Message,

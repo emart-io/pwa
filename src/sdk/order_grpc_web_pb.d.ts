@@ -14,7 +14,7 @@ import {
 export class OrdersClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: Order,
@@ -64,7 +64,7 @@ export class OrdersClient {
 export class AccountsClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: Account,
@@ -104,7 +104,7 @@ export class AccountsClient {
 export class OrdersPromiseClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: Order,
@@ -146,7 +146,7 @@ export class OrdersPromiseClient {
 export class AccountsPromiseClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   add(
     request: Account,

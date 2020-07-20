@@ -12,7 +12,6 @@ import { CommoditiesPromiseClient, CouponsPromiseClient, CommentsPromiseClient }
 export class ApiService {
   opts = { 'streamInterceptors': [new StreamInterceptor()] };
 
-  //@ts-ignore
   commodityClient = new CommoditiesPromiseClient(environment.apiUrl, null, this.opts);
   userClient = new UsersPromiseClient(environment.apiUrl);
   couponClient = new CouponsPromiseClient(environment.apiUrl);
