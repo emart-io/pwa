@@ -1,8 +1,7 @@
-import { NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
-import { Component, ViewChild } from '@angular/core';
 import { Commodity } from '../../../sdk/commodity_pb';
+import { Component, ViewChild, NgZone } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { apiService, utilsService } from '../../providers/utils.service';
 import { StringValue } from 'google-protobuf/google/protobuf/wrappers_pb';
@@ -114,8 +113,8 @@ export class HomePage {
         }
       });
     }, err => {
-      console.log(err);
-      //utilsService.alert(JSON.stringify(err));
+      //console.log(err);
+      utilsService.alert(JSON.stringify(err));
     });
   }
 }
