@@ -48,7 +48,7 @@ export class PublishPage {
     //   utilsService.alert('发布商品，请先实名认证');
     //   this.router.navigateByUrl('/certification');
     // }
-    this.commodity.city = utilsService.location.addressComponent.province + utilsService.location.addressComponent.city;
+    this.commodity.city = utilsService.formatLocation();
   }
 
   toast() {

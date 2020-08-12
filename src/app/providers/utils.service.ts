@@ -13,11 +13,14 @@ export class UtilsService {
   storage = new MesssageStorage();
 
   // https://lbs.amap.com/api/javascript-api/reference/lnglat-to-address#regeocode
-  location = {
-    formattedAddress: '湖北省荆门市',
-    addressComponent: { province: '湖北省', city: "荆门市", district: '沙洋县' }
-  };
+  location = { province: '湖北省', city: "荆门市", };
 
+  formatLocation(): string {
+    if (this.location.province != this.location.city) {
+      return this.location.province + this.location.city;
+    }
+    return this.location.city;
+  }
   eventMap = new Map<string, EventEmitter<any>>();
 
   events(topic: string): EventEmitter<any> {

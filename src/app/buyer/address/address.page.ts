@@ -18,7 +18,7 @@ export class AddressPage {
   constructor(
     private location: Location,
     private popoverController: PopoverController) {
-    this.address.location = utilsService.location.formattedAddress;
+    this.address.location = utilsService.formatLocation();
   }
 
   ionViewWillEnter() {
