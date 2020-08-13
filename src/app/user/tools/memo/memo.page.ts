@@ -13,7 +13,7 @@ import { apiService, utilsService } from '../../../providers/utils.service';
 export class MemoPage {
   memos: Memo[] = [];
   now = new Date();
-  location = utilsService.location.formattedAddress;
+  location = utilsService.location.addressComponent.province + utilsService.location.addressComponent.city;
   timeOutEvent;
 
   constructor(
