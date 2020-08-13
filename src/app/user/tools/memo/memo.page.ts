@@ -13,7 +13,7 @@ import { apiService, utilsService } from '../../../providers/utils.service';
 export class MemoPage {
   memos: Memo[] = [];
   now = new Date();
-  location = utilsService.formatLocation();
+  location = utilsService.location.formattedAddress;
   timeOutEvent;
 
   constructor(

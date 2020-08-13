@@ -87,22 +87,28 @@ export class HomePage {
   }
 
   getLocation() {
-    AMap.plugin('AMap.CitySearch', () => {
-      var citySearch = new AMap.CitySearch()
-      citySearch.getLocalCity((status, result) => {
-        if (status === 'complete' && result.info === 'OK') {
-          // 查询成功，result即为当前所在城市信息
-          console.log(result);
-          utilsService.location = { province: result.province, city: result.city }
-          // refresh view
+    AMap.plugin('AMap.Geolocation', () => {
+      var geolocation = new AMap.Geolocation({
+        enableHighAccuracy: true,//是否使用高精度定位，默认:true
+        timeout: 10000,          //超过10秒后停止定位，默认：5s
+      });
+      geolocation.getCurrentPosition((status, result) => {
+        if (status == 'complete') {
+          utilsService.location = result;
           this.ngZone.run(() => {
-            this.city = utilsService.location.city;
+            this.city = utilsService.location.addressComponent.city + utilsService.location.addressComponent.district;
+            if (utilsService.location.addressComponent.city == '') {
+              this.city = utilsService.location.addressComponent.province + utilsService.location.addressComponent.district;
+            }
           });
+        } else {
+          utilsService.alert(JSON.stringify(result));
         }
-      })
-    })
+      });
+    });
+  }
 
-
+  getLocation1() {
     /*navigator.geolocation.getCurrentPosition(
       resp => {
         AMap.convertFrom(resp.coords.longitude + "," + resp.coords.latitude, "gps", (status, result) => {
