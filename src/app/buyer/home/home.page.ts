@@ -102,7 +102,8 @@ export class HomePage {
             }
           });
         } else {
-          utilsService.alert(JSON.stringify(result));
+          console.log(result);
+          //utilsService.alert(JSON.stringify(result));
         }
       });
     });
