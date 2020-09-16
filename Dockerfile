@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
 ADD ./nginx.conf /etc/nginx/conf.d/default.conf
-#ADD ./fullchain.pem ./privkey.pem /etc/
+ADD ./cert/fullchain.cer ./cert/iyou.city.key /etc/
 ADD ./www /usr/share/nginx/html
 
 EXPOSE 80 443

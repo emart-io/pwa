@@ -8,9 +8,10 @@ clean:
 
 build:clean
 	ionic build --prod
+	docker build -t $(IMG_HUB)/$(SERVICE):$(TAG) .
 
 push:build
-	docker build -t $(IMG_HUB)/$(SERVICE):$(TAG) .
+#	docker build -t $(IMG_HUB)/$(SERVICE):$(TAG) .
 	docker push $(IMG_HUB)/$(SERVICE):$(TAG)
 
 resource:

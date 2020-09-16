@@ -1,0 +1,6 @@
+清除$PWD/.acme.sh目录
+1.curl https://get.acme.sh | sh
+2.cd .acme.sh
+3../acme.sh --issue --dns -d iyou.city -d *.iyou.city --yes-I-know-dns-manual-mode-enough-go-ahead-please
+4.dns里添加txt记录(两条)[http://www.xinnet.com/]
+5../acme.sh --renew --dns -d iyou.city -d *.iyou.city --yes-I-know-dns-manual-mode-enough-go-ahead-please
