@@ -37,7 +37,7 @@ proto.zbay = require('./commodity_pb.js');
 proto.zbay.CommoditiesClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options['format'] = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -63,7 +63,7 @@ proto.zbay.CommoditiesClient =
 proto.zbay.CommoditiesPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options['format'] = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -559,7 +559,7 @@ proto.zbay.CommoditiesPromiseClient.prototype.delete =
 proto.zbay.CouponsClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options['format'] = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -585,7 +585,7 @@ proto.zbay.CouponsClient =
 proto.zbay.CouponsPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options['format'] = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -1006,7 +1006,7 @@ proto.zbay.CouponsPromiseClient.prototype.list =
 proto.zbay.CommentsClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options['format'] = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -1032,7 +1032,7 @@ proto.zbay.CommentsClient =
 proto.zbay.CommentsPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options['format'] = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
