@@ -7,18 +7,6 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-var jspb = require('google-protobuf');
-var goog = jspb;
-var global = Function('return this')();
-
-var user_pb = require('./user_pb.js');
-goog.object.extend(proto, user_pb);
-var commodity_pb = require('./commodity_pb.js');
-goog.object.extend(proto, commodity_pb);
-var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
-goog.object.extend(proto, google_protobuf_empty_pb);
-var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
-goog.object.extend(proto, google_protobuf_timestamp_pb);
 goog.exportSymbol('proto.zbay.Account', null, global);
 goog.exportSymbol('proto.zbay.Express', null, global);
 goog.exportSymbol('proto.zbay.Groupon', null, global);
@@ -231,7 +219,7 @@ proto.zbay.Account.toObject = function(includeInstance, msg) {
     userId: jspb.Message.getFieldWithDefault(msg, 2, ""),
     amount: jspb.Message.getFieldWithDefault(msg, 3, 0),
     orderId: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    created: (f = msg.getCreated()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+    created: (f = msg.getCreated()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f),
     annotationsMap: (f = msg.getAnnotationsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
@@ -286,8 +274,8 @@ proto.zbay.Account.deserializeBinaryFromReader = function(msg, reader) {
       msg.setOrderId(value);
       break;
     case 5:
-      var value = new google_protobuf_timestamp_pb.Timestamp;
-      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      var value = new proto.google.protobuf.Timestamp;
+      reader.readMessage(value,proto.google.protobuf.Timestamp.deserializeBinaryFromReader);
       msg.setCreated(value);
       break;
     case 6:
@@ -358,7 +346,7 @@ proto.zbay.Account.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       5,
       f,
-      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+      proto.google.protobuf.Timestamp.serializeBinaryToWriter
     );
   }
   f = message.getAnnotationsMap(true);
@@ -484,7 +472,7 @@ Object.defineProperty(proto.zbay.Account.prototype, "created", {
  */
 proto.zbay.Account.prototype.getCreated = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 5));
+    jspb.Message.getWrapperField(this, proto.google.protobuf.Timestamp, 5));
 };
 
 
@@ -754,11 +742,11 @@ proto.zbay.Order.prototype.toObject = function(opt_includeInstance) {
 proto.zbay.Order.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    snapshot: (f = msg.getSnapshot()) && commodity_pb.Commodity.toObject(includeInstance, f),
+    snapshot: (f = msg.getSnapshot()) && proto.zbay.Commodity.toObject(includeInstance, f),
     groupon: (f = msg.getGroupon()) && proto.zbay.Groupon.toObject(includeInstance, f),
-    price: (f = msg.getPrice()) && commodity_pb.Price.toObject(includeInstance, f),
+    price: (f = msg.getPrice()) && proto.zbay.Price.toObject(includeInstance, f),
     userId: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    destination: (f = msg.getDestination()) && user_pb.Address.toObject(includeInstance, f),
+    destination: (f = msg.getDestination()) && proto.zbay.Address.toObject(includeInstance, f),
     quantity: jspb.Message.getFieldWithDefault(msg, 5, 0),
     amount: jspb.Message.getFieldWithDefault(msg, 6, 0),
     status: jspb.Message.getFieldWithDefault(msg, 7, ""),
@@ -766,7 +754,7 @@ proto.zbay.Order.toObject = function(includeInstance, msg) {
     payInfo: (f = msg.getPayInfo()) && proto.zbay.PayInfo.toObject(includeInstance, f),
     express: (f = msg.getExpress()) && proto.zbay.Express.toObject(includeInstance, f),
     annotationsMap: (f = msg.getAnnotationsMap()) ? f.toObject(includeInstance, undefined) : [],
-    created: (f = msg.getCreated()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+    created: (f = msg.getCreated()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -808,8 +796,8 @@ proto.zbay.Order.deserializeBinaryFromReader = function(msg, reader) {
       msg.setId(value);
       break;
     case 12:
-      var value = new commodity_pb.Commodity;
-      reader.readMessage(value,commodity_pb.Commodity.deserializeBinaryFromReader);
+      var value = new proto.zbay.Commodity;
+      reader.readMessage(value,proto.zbay.Commodity.deserializeBinaryFromReader);
       msg.setSnapshot(value);
       break;
     case 15:
@@ -818,8 +806,8 @@ proto.zbay.Order.deserializeBinaryFromReader = function(msg, reader) {
       msg.setGroupon(value);
       break;
     case 13:
-      var value = new commodity_pb.Price;
-      reader.readMessage(value,commodity_pb.Price.deserializeBinaryFromReader);
+      var value = new proto.zbay.Price;
+      reader.readMessage(value,proto.zbay.Price.deserializeBinaryFromReader);
       msg.setPrice(value);
       break;
     case 3:
@@ -827,8 +815,8 @@ proto.zbay.Order.deserializeBinaryFromReader = function(msg, reader) {
       msg.setUserId(value);
       break;
     case 4:
-      var value = new user_pb.Address;
-      reader.readMessage(value,user_pb.Address.deserializeBinaryFromReader);
+      var value = new proto.zbay.Address;
+      reader.readMessage(value,proto.zbay.Address.deserializeBinaryFromReader);
       msg.setDestination(value);
       break;
     case 5:
@@ -864,8 +852,8 @@ proto.zbay.Order.deserializeBinaryFromReader = function(msg, reader) {
          });
       break;
     case 11:
-      var value = new google_protobuf_timestamp_pb.Timestamp;
-      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      var value = new proto.google.protobuf.Timestamp;
+      reader.readMessage(value,proto.google.protobuf.Timestamp.deserializeBinaryFromReader);
       msg.setCreated(value);
       break;
     default:
@@ -909,7 +897,7 @@ proto.zbay.Order.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       12,
       f,
-      commodity_pb.Commodity.serializeBinaryToWriter
+      proto.zbay.Commodity.serializeBinaryToWriter
     );
   }
   f = message.getGroupon();
@@ -925,7 +913,7 @@ proto.zbay.Order.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       13,
       f,
-      commodity_pb.Price.serializeBinaryToWriter
+      proto.zbay.Price.serializeBinaryToWriter
     );
   }
   f = message.getUserId();
@@ -940,7 +928,7 @@ proto.zbay.Order.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       4,
       f,
-      user_pb.Address.serializeBinaryToWriter
+      proto.zbay.Address.serializeBinaryToWriter
     );
   }
   f = message.getQuantity();
@@ -996,7 +984,7 @@ proto.zbay.Order.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       11,
       f,
-      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+      proto.google.protobuf.Timestamp.serializeBinaryToWriter
     );
   }
 };
@@ -1043,7 +1031,7 @@ Object.defineProperty(proto.zbay.Order.prototype, "snapshot", {
  */
 proto.zbay.Order.prototype.getSnapshot = function() {
   return /** @type{?proto.zbay.Commodity} */ (
-    jspb.Message.getWrapperField(this, commodity_pb.Commodity, 12));
+    jspb.Message.getWrapperField(this, proto.zbay.Commodity, 12));
 };
 
 
@@ -1129,7 +1117,7 @@ Object.defineProperty(proto.zbay.Order.prototype, "price", {
  */
 proto.zbay.Order.prototype.getPrice = function() {
   return /** @type{?proto.zbay.Price} */ (
-    jspb.Message.getWrapperField(this, commodity_pb.Price, 13));
+    jspb.Message.getWrapperField(this, proto.zbay.Price, 13));
 };
 
 
@@ -1197,7 +1185,7 @@ Object.defineProperty(proto.zbay.Order.prototype, "destination", {
  */
 proto.zbay.Order.prototype.getDestination = function() {
   return /** @type{?proto.zbay.Address} */ (
-    jspb.Message.getWrapperField(this, user_pb.Address, 4));
+    jspb.Message.getWrapperField(this, proto.zbay.Address, 4));
 };
 
 
@@ -1457,7 +1445,7 @@ Object.defineProperty(proto.zbay.Order.prototype, "created", {
  */
 proto.zbay.Order.prototype.getCreated = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 11));
+    jspb.Message.getWrapperField(this, proto.google.protobuf.Timestamp, 11));
 };
 
 
@@ -2421,7 +2409,7 @@ proto.zbay.ListQuery.prototype.toObject = function(opt_includeInstance) {
  */
 proto.zbay.ListQuery.toObject = function(includeInstance, msg) {
   var f, obj = {
-    user: (f = msg.getUser()) && user_pb.User.toObject(includeInstance, f),
+    user: (f = msg.getUser()) && proto.zbay.User.toObject(includeInstance, f),
     status: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
@@ -2460,8 +2448,8 @@ proto.zbay.ListQuery.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new user_pb.User;
-      reader.readMessage(value,user_pb.User.deserializeBinaryFromReader);
+      var value = new proto.zbay.User;
+      reader.readMessage(value,proto.zbay.User.deserializeBinaryFromReader);
       msg.setUser(value);
       break;
     case 2:
@@ -2502,7 +2490,7 @@ proto.zbay.ListQuery.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       1,
       f,
-      user_pb.User.serializeBinaryToWriter
+      proto.zbay.User.serializeBinaryToWriter
     );
   }
   f = message.getStatus();
@@ -2531,7 +2519,7 @@ Object.defineProperty(proto.zbay.ListQuery.prototype, "user", {
  */
 proto.zbay.ListQuery.prototype.getUser = function() {
   return /** @type{?proto.zbay.User} */ (
-    jspb.Message.getWrapperField(this, user_pb.User, 1));
+    jspb.Message.getWrapperField(this, proto.zbay.User, 1));
 };
 
 
@@ -2583,4 +2571,3 @@ proto.zbay.ListQuery.prototype.setStatus = function(value) {
 };
 
 
-goog.object.extend(exports, proto.zbay);

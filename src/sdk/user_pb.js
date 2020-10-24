@@ -7,14 +7,6 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-var jspb = require('google-protobuf');
-var goog = jspb;
-var global = Function('return this')();
-
-var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
-goog.object.extend(proto, google_protobuf_empty_pb);
-var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
-goog.object.extend(proto, google_protobuf_timestamp_pb);
 goog.exportSymbol('proto.zbay.Address', null, global);
 goog.exportSymbol('proto.zbay.Certification', null, global);
 goog.exportSymbol('proto.zbay.Memo', null, global);
@@ -174,7 +166,7 @@ proto.zbay.User.toObject = function(includeInstance, msg) {
     shopsList: jspb.Message.toObjectList(msg.getShopsList(),
     proto.zbay.Shop.toObject, includeInstance),
     annotationsMap: (f = msg.getAnnotationsMap()) ? f.toObject(includeInstance, undefined) : [],
-    created: (f = msg.getCreated()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+    created: (f = msg.getCreated()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -252,8 +244,8 @@ proto.zbay.User.deserializeBinaryFromReader = function(msg, reader) {
          });
       break;
     case 8:
-      var value = new google_protobuf_timestamp_pb.Timestamp;
-      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      var value = new proto.google.protobuf.Timestamp;
+      reader.readMessage(value,proto.google.protobuf.Timestamp.deserializeBinaryFromReader);
       msg.setCreated(value);
       break;
     default:
@@ -352,7 +344,7 @@ proto.zbay.User.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       8,
       f,
-      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+      proto.google.protobuf.Timestamp.serializeBinaryToWriter
     );
   }
 };
@@ -642,7 +634,7 @@ Object.defineProperty(proto.zbay.User.prototype, "created", {
  */
 proto.zbay.User.prototype.getCreated = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 8));
+    jspb.Message.getWrapperField(this, proto.google.protobuf.Timestamp, 8));
 };
 
 
@@ -943,7 +935,7 @@ proto.zbay.Address.toObject = function(includeInstance, msg) {
     location: jspb.Message.getFieldWithDefault(msg, 5, ""),
     pb_default: jspb.Message.getBooleanFieldWithDefault(msg, 8, false),
     annotationsMap: (f = msg.getAnnotationsMap()) ? f.toObject(includeInstance, undefined) : [],
-    created: (f = msg.getCreated()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+    created: (f = msg.getCreated()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1011,8 +1003,8 @@ proto.zbay.Address.deserializeBinaryFromReader = function(msg, reader) {
          });
       break;
     case 7:
-      var value = new google_protobuf_timestamp_pb.Timestamp;
-      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      var value = new proto.google.protobuf.Timestamp;
+      reader.readMessage(value,proto.google.protobuf.Timestamp.deserializeBinaryFromReader);
       msg.setCreated(value);
       break;
     default:
@@ -1095,7 +1087,7 @@ proto.zbay.Address.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       7,
       f,
-      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+      proto.google.protobuf.Timestamp.serializeBinaryToWriter
     );
   }
 };
@@ -1298,7 +1290,7 @@ Object.defineProperty(proto.zbay.Address.prototype, "created", {
  */
 proto.zbay.Address.prototype.getCreated = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 7));
+    jspb.Message.getWrapperField(this, proto.google.protobuf.Timestamp, 7));
 };
 
 
@@ -1574,8 +1566,8 @@ proto.zbay.Memo.toObject = function(includeInstance, msg) {
     content: jspb.Message.getFieldWithDefault(msg, 4, ""),
     location: jspb.Message.getFieldWithDefault(msg, 8, ""),
     annotationsMap: (f = msg.getAnnotationsMap()) ? f.toObject(includeInstance, undefined) : [],
-    created: (f = msg.getCreated()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    updated: (f = msg.getUpdated()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+    created: (f = msg.getCreated()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f),
+    updated: (f = msg.getUpdated()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1639,13 +1631,13 @@ proto.zbay.Memo.deserializeBinaryFromReader = function(msg, reader) {
          });
       break;
     case 6:
-      var value = new google_protobuf_timestamp_pb.Timestamp;
-      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      var value = new proto.google.protobuf.Timestamp;
+      reader.readMessage(value,proto.google.protobuf.Timestamp.deserializeBinaryFromReader);
       msg.setCreated(value);
       break;
     case 7:
-      var value = new google_protobuf_timestamp_pb.Timestamp;
-      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      var value = new proto.google.protobuf.Timestamp;
+      reader.readMessage(value,proto.google.protobuf.Timestamp.deserializeBinaryFromReader);
       msg.setUpdated(value);
       break;
     default:
@@ -1721,7 +1713,7 @@ proto.zbay.Memo.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       6,
       f,
-      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+      proto.google.protobuf.Timestamp.serializeBinaryToWriter
     );
   }
   f = message.getUpdated();
@@ -1729,7 +1721,7 @@ proto.zbay.Memo.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       7,
       f,
-      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+      proto.google.protobuf.Timestamp.serializeBinaryToWriter
     );
   }
 };
@@ -1907,7 +1899,7 @@ Object.defineProperty(proto.zbay.Memo.prototype, "created", {
  */
 proto.zbay.Memo.prototype.getCreated = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 6));
+    jspb.Message.getWrapperField(this, proto.google.protobuf.Timestamp, 6));
 };
 
 
@@ -1950,7 +1942,7 @@ Object.defineProperty(proto.zbay.Memo.prototype, "updated", {
  */
 proto.zbay.Memo.prototype.getUpdated = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 7));
+    jspb.Message.getWrapperField(this, proto.google.protobuf.Timestamp, 7));
 };
 
 
@@ -1977,4 +1969,3 @@ proto.zbay.Memo.prototype.hasUpdated = function() {
 };
 
 
-goog.object.extend(exports, proto.zbay);
