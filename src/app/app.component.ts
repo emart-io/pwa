@@ -35,7 +35,7 @@ export class AppComponent {
               history.back();
             }
           } else {
-            utilsService.toast('再按一次退出 [农村大集]');
+            utilsService.toast('再按一次退出 [乡村大集]');
             this.exit = true;
             setTimeout(() => this.exit = false, 1500);
           }
