@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { Platform, PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pwa',
@@ -8,7 +8,13 @@ import { PopoverController } from '@ionic/angular';
 })
 export class PwaComponent implements OnInit {
 
-  constructor(private popoverController: PopoverController) { }
+  isAndroid = this.platform.is('android');
+  isIPhone = this.platform.is('iphone');
+
+  constructor(
+    private platform: Platform,
+    private popoverController: PopoverController
+  ) { }
 
   ngOnInit() { }
 
