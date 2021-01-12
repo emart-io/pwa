@@ -98,10 +98,12 @@ export class AppComponent {
     document.getElementsByTagName('meta')['theme-color'].content = this.theme.mycolor;
     //  iOS Safari <!-- 可选default、black、black-translucent? -->
     document.getElementsByTagName('meta')['apple-mobile-web-app-status-bar-style'].content = 'black-translucent';
-    if (navigator.userAgent.includes('Safari') && this.platform.is('iphone') && location.search.includes('homescreen')) {
+    if (navigator.userAgent.includes('Safari') && this.platform.is('iphone')) {
       let els = document.getElementsByTagName('ion-app');
       els[0].style.background = 'white';
-      els[0].style.marginTop = '20px';
+      if (location.search.includes('homescreen')) {
+        els[0].style.marginTop = '20px';
+      }
       document.body.style.background = this.theme.mycolor;
     }
   }
