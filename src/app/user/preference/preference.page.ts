@@ -50,4 +50,8 @@ export class PreferencePage implements OnInit {
     //window.localStorage.clear();
     utilsService.toast('缓存已清除');
   }
+
+  about() {
+    this.router.navigateByUrl('/about');
+  }
 }

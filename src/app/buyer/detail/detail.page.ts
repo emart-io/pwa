@@ -137,12 +137,4 @@ export class DetailPage {
       utilsService.alert(JSON.stringify(err));
     });
   }
-
-  back() {
-    if (history.length <= 2) {
-      this.router.navigateByUrl('/');
-    } else {
-      this.location.back();
-    }
-  }
 }
