@@ -235,4 +235,8 @@ export class PurchasePage {
   onChangeHandler($event) {
     this.order.payInfo.type = $event.target.value;
   }
+
+  address() {
+    this.router.navigateByUrl('/address');
+  }
 }

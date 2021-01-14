@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-item routerLink="/address">
+  <ion-item (click)="address()">
     <ion-icon name="location"></ion-icon>
     <ion-card-content>
       {{order.destination?.contact}} {{order.destination?.telephone}}
