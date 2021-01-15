@@ -117,4 +117,25 @@ export class AppComponent {
     });
     await popover.present();
   }
+
+  // async popoverPWA() {
+  //   this.alreadyPopover = true;
+  //   let icon = 'aperture-outline';
+  //   if (this.platform.is('android')) {
+  //     icon = 'logo-android';
+  //   }
+  //   if (this.platform.is('iphone')) {
+  //     icon = 'logo-apple';
+  //   }
+  //   const actionSheet = await this.injector.get(ActionSheetController).create({
+  //     header: '为提升体验，不妨试试添加到主屏幕',
+  //     backdropDismiss: false,
+  //     buttons: [{
+  //       text: '',
+  //       icon: icon,
+  //       handler: () => { }
+  //     }]
+  //   });
+  //   await actionSheet.present();
+  // }
 }
