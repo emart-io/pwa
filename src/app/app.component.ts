@@ -69,12 +69,11 @@ export class AppComponent {
           // why invalid?
           window.scrollTo(0, 1);
         }, 3000);
-
-        if (this.platform.is('iphone') && !this.alreadyPopover) {
-          this.popoverPWA();
-        }
       }
 
+      if (this.platform.is('iphone') && (!navigator['standalone']) && !this.alreadyPopover) {
+        this.popoverPWA();
+      }
     });
   }
 
