@@ -100,7 +100,7 @@ export class AppComponent {
     if (navigator.userAgent.includes('Safari') && this.platform.is('iphone')) {
       let els = document.getElementsByTagName('ion-app');
       els[0].style.background = 'white';
-      if (location.search.includes('homescreen')) {
+      if (navigator['standalone']) {
         els[0].style.marginTop = '20px';
       }
       document.body.style.background = this.theme.mycolor;
