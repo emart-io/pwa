@@ -42,7 +42,7 @@ export class AppComponent {
       });
 
       this.eventManager.addGlobalEventListener('window', 'beforeinstallprompt', (event) => {
-        if (!this.alreadyPopover) {
+        if (!this.alreadyPopover()) {
           this.popoverPWA();
         }
       });
@@ -70,7 +70,7 @@ export class AppComponent {
         }, 3000);
       }
 
-      if (this.platform.is('iphone') && (!navigator['standalone']) && !this.alreadyPopover) {
+      if (this.platform.is('iphone') && (!navigator['standalone']) && !this.alreadyPopover()) {
         this.popoverPWA();
       }
     });
