@@ -12,7 +12,6 @@ import { Platform, PopoverController } from '@ionic/angular';
 })
 export class AppComponent {
   exit = false;
-  alreadyPopover = false;
 
   constructor(
     private router: Router,
@@ -108,12 +107,16 @@ export class AppComponent {
   }
 
   async popoverPWA() {
-    this.alreadyPopover = true;
+    localStorage.setItem('alreadyPopover', 'true');
     const popover = await this.injector.get(PopoverController).create({
       component: PwaComponent,
       backdropDismiss: false,
       cssClass: 'bottom-sheet-popover-pwa',
     });
     await popover.present();
+  }
+
+  alreadyPopover() {
+    return localStorage.getItem('alreadyPopover')
   }
 }
