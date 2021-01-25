@@ -107,7 +107,6 @@ export class AppComponent {
   }
 
   async popoverPWA() {
-    localStorage.setItem('alreadyPopover', 'true');
     const popover = await this.injector.get(PopoverController).create({
       component: PwaComponent,
       backdropDismiss: false,

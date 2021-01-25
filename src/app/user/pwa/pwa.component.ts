@@ -20,5 +20,6 @@ export class PwaComponent implements OnInit {
 
   close() {
     this.popoverController.dismiss();
+    localStorage.setItem('alreadyPopover', 'true');
   }
 }
