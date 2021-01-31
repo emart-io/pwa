@@ -41,16 +41,16 @@ export class ScannerPage {
 
   toggleLight() {
     this.torch = !this.torch;
-    //if (this.torch) {
-    this.track.applyConstraints({
-      advanced: [{ torch: this.torch }]
-    }).catch(e => utilsService.alert(JSON.stringify(e)));
-    // } else {
-    // this.track.applyConstraints({
-    //   advanced: [{ torch: false }]
-    // }).catch(e => utilsService.alert(JSON.stringify(e)));
-    //  return location.href = 'https://iyou.city/scanner';
-    // }
+    if (this.torch) {
+      this.track.applyConstraints({
+        advanced: [{ torch: true }]
+      }).catch(e => utilsService.alert(JSON.stringify(e)));
+    } else {
+      this.track.applyConstraints({
+        advanced: [{ torch: false }]
+      }).catch(e => utilsService.alert(JSON.stringify(e)));
+      return location.href = 'https://iyou.city/scanner';
+    }
   }
 
   toggleCamera() {

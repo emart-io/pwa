@@ -73,8 +73,9 @@ export class MemoPage {
 
   formatMinute(value: number): string {
     if (value < 10) {
-      return '0' + value;
+      return '0' + value.toString();
     }
+
     return '' + value
   }
 }
