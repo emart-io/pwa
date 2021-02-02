@@ -70,4 +70,12 @@ export class MemoPage {
   touchend() {
     clearTimeout(this.timeOutEvent);
   }
+
+  formatDate(value: Date): string {
+    let output = value.getHours() + ':';
+    if (value.getMinutes() < 10) {
+      output = output + '0';
+    }
+    return output + value.getMinutes() + ' ' + (value.getHours() > 12 ? '下午' : '上午')
+  }
 }
