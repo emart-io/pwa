@@ -21,7 +21,7 @@
         <div class="info" (click)="save(memo)">{{memo.content}}</div>
         <div class="name">- {{memo.location}} -</div>
         <div class="time">
-          <span>{{memo.created.toDate().getMonth()+1}}月{{memo.created.toDate().getDate()}}<sup>
+          <span>{{memo.created.toDate().getMonth()+1}}月{{memo.created.toDate().getDate()}}日<sup>
               {{memo.created.toDate().getFullYear()}}</sup></span>
           <span>{{formatDate(memo.created.toDate())}}</span>
         </div>
@@ -106,7 +106,7 @@
         <div class="info">随时，随地，不会丢失的云端笔记。</div>
         <div class="name">- {{location}} -</div>
         <div class="time">
-          <span>{{now.getMonth()+1}}月{{now.getDate()}}<sup>
+          <span>{{now.getMonth()+1}}月{{now.getDate()}}日<sup>
               {{now.getFullYear()}}</sup></span>
           <span>{{formatDate(now)}}</span>
         </div>
