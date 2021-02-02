@@ -23,8 +23,7 @@
         <div class="time">
           <span>{{memo.created.toDate().getMonth()+1}}月{{memo.created.toDate().getDate()}}<sup>
               {{memo.created.toDate().getFullYear()}}</sup></span>
-          <span>{{memo.created.toDate().getHours()}}:formatMinute(memo.created.toDate().getMinutes())
-            {{memo.created.toDate().getHours()>12?'下午':'上午'}}</span>
+          <span>{{memo.created.toDate().toLocaleTimeString()}}</span>
         </div>
       </li>
       <!-- <li>

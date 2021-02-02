@@ -70,12 +70,4 @@ export class MemoPage {
   touchend() {
     clearTimeout(this.timeOutEvent);
   }
-
-  formatMinute(value: number): string {
-    if (value < 10) {
-      return '0' + value.toString();
-    }
-
-    return '' + value
-  }
 }
