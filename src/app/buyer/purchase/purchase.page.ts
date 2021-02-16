@@ -148,7 +148,7 @@ export class PurchasePage {
       return utilsService.alert('请输入收货地址');
     }
     if (this.order.userId == this.order.snapshot.ownerId) {
-      return utilsService.alert('请勿自卖自买');
+      return utilsService.alert('请勿自我买卖');
     }
     if (this.order.payInfo.type == 'alipay') {
       let sr = new PayMap();
