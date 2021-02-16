@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://iyou.city',
-  //apiUrl: 'http://192.168.1.180:50051',
+  apiUrl: 'https://' + window.location.host,
+  //apiUrl: 'https://iyou.city|www.iyou.city',
 };
