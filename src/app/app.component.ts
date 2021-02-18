@@ -34,13 +34,14 @@ export class AppComponent {
               history.back();
             }
           } else {
-            utilsService.toast('再按一次退出 [乡村大集]');
+            utilsService.toast('再按一次退出 [土产大集]');
             this.exit = true;
             setTimeout(() => this.exit = false, 1500);
           }
         }
       });
 
+      // TODO:  普通添加到桌面，也需要避免提示
       this.eventManager.addGlobalEventListener('window', 'beforeinstallprompt', (event) => {
         if (!this.alreadyPopover()) {
           this.popoverPWA();

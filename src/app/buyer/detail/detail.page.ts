@@ -60,15 +60,15 @@ export class DetailPage {
   share() {
     if (window.navigator['share']) {
       window.navigator['share']({
-        title: '乡村大集',
-        text: '[乡村大集]上乡村大集，让乡货便宜到家--' + this.commodity.title,
+        title: '土产大集',
+        text: '[土产大集]上土产大集，让乡货便宜到家--' + this.commodity.title,
         url: 'https://iyou.city/commodity/detail?id=' + this.commodity.id
       }).then(() => {
         console.log('done');
       });
     } else {
       var aux = document.createElement("input");
-      aux.setAttribute("value", "[乡村大集]上乡村大集，让乡货便宜到家--" + this.commodity.title + ";https://iyou.city/commodity/detail?id=" + this.commodity.id);
+      aux.setAttribute("value", "[土产大集]上土产大集，让乡货便宜到家--" + this.commodity.title + ";https://iyou.city/commodity/detail?id=" + this.commodity.id);
       document.body.appendChild(aux);
       aux.select();
       document.execCommand("Copy");
@@ -82,7 +82,7 @@ export class DetailPage {
     /*
     this.wechat.share({
       message: {
-        title: "[乡村大集]上乡村大集，让乡货便宜到家--" + this.commodity.title,
+        title: "[土产大集]上土产大集，让乡货便宜到家--" + this.commodity.title,
         description: "This is description.",
         thumb: "www/assets/icons/favicon.png",
         mediaTagName: "TEST-TAG-001",
