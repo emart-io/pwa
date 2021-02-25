@@ -19,7 +19,6 @@ export class PurchasePage {
 
   constructor(
     private router: Router,
-    //private location: Location,
     private httpClient: HttpClient,
     private actionSheetController: ActionSheetController) {
     if (!utilsService.paraMap['purchase']) {
@@ -40,28 +39,12 @@ export class PurchasePage {
           text: '已完成支付',
           role: 'destructive',
           icon: 'briefcase',
-          handler: () => {
-            let pm = new PayMap();
-            pm.url = 'https://api.mch.weixin.qq.com/pay/orderquery';
-            pm.kvMap.set('out_trade_no', this.order.payInfo.payResult);
-            apiService.accountClient.wechatPay(pm).then(response => {
-              if (response.kvMap.get('trade_state') == 'SUCCESS') {
-                this.commitOrder();
-              } else {
-                utilsService.toast('订单未支付');
-                this.router.navigateByUrl('/tabs/home');
-              }
-            }).catch(err => {
-              utilsService.alert(JSON.stringify(err));
-            });
-          }
+          handler: this.weixinConfirm,
         }, {
           text: '支付遇到问题，已取消',
           icon: 'backspace',
-          handler: () => {
-            utilsService.toast('订单未支付');
-            this.router.navigateByUrl('/tabs/home');
-          }
+          // 仍然confirm，避免用户错误点击
+          handler: this.weixinConfirm,
         }]
       });
       await actionSheet.present();
@@ -238,5 +221,21 @@ export class PurchasePage {
 
   address() {
     this.router.navigateByUrl('/address');
+  }
+
+  weixinConfirm() {
+    let pm = new PayMap();
+    pm.url = 'https://api.mch.weixin.qq.com/pay/orderquery';
+    pm.kvMap.set('out_trade_no', this.order.payInfo.payResult);
+    apiService.accountClient.wechatPay(pm).then(response => {
+      if (response.kvMap.get('trade_state') == 'SUCCESS') {
+        this.commitOrder();
+      } else {
+        utilsService.toast('订单未支付');
+        this.router.navigateByUrl('/tabs/home');
+      }
+    }).catch(err => {
+      utilsService.alert(JSON.stringify(err));
+    });
   }
 }
