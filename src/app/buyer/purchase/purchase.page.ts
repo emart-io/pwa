@@ -39,12 +39,12 @@ export class PurchasePage {
           text: '已完成支付',
           role: 'destructive',
           icon: 'briefcase',
-          handler: this.weixinConfirm,
+          handler: () => { this.weixinConfirm() },
         }, {
           text: '支付遇到问题，已取消',
           icon: 'backspace',
           // 仍然confirm，避免用户错误点击
-          handler: this.weixinConfirm,
+          handler: () => { this.weixinConfirm() },
         }]
       });
       await actionSheet.present();
