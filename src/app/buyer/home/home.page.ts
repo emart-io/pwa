@@ -14,7 +14,7 @@ declare let AMap;
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  @ViewChild('mySlider', { static: false }) slider: IonSlides;
+  @ViewChild('topSlider', { static: false }) slider: IonSlides;
   city = '定位中';
   host = environment.apiUrl;
   formatRBM = utilsService.formatRMB;
