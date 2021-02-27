@@ -67,7 +67,10 @@ export class HomePage {
       utilsService.alert(JSON.stringify(err));
     });
     stream.on('end', () => {
-      this.commodities = newCommodities;
+      // 避免不必要闪动
+      if (this.commodities.toString() != newCommodities.toString()) {
+        this.commodities = newCommodities;
+      }
     });
     this.getLocation();
   }

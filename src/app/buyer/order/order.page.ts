@@ -159,7 +159,10 @@ export class OrderPage {
       }
     });
     stream.on('end', () => {
-      this.orders = newOrders;
+      // 避免不必要闪动
+      if (this.orders.toString() != newOrders.toString()) {
+        this.orders = newOrders;
+      }
       if (event) {
         event.target.complete();
       }
