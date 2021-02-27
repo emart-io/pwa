@@ -99,7 +99,7 @@
     </ion-card-content>
     <div style="margin: 5% 20px;">
       <ion-card-subtitle>为你推荐</ion-card-subtitle>
-      <ion-slides [options]="slideOpts">
+      <ion-slides #middleSlider [options]="slideOpts">
         <ion-slide *ngFor="let commodity of commodities" (click)="gotoDetail(commodity)">
           <ion-card style="margin:5px;height: 100%;width: 100%;">
             <img *ngIf="commodity.mediaList[0]?.image"

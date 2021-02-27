@@ -14,7 +14,8 @@ declare let AMap;
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  @ViewChild('topSlider', { static: false }) slider: IonSlides;
+  @ViewChild('topSlider', { static: false }) topSlider: IonSlides;
+  @ViewChild('middleSlider', { static: false }) middleSlider: IonSlides;
   city = '定位中';
   host = environment.apiUrl;
   formatRBM = utilsService.formatRMB;
@@ -41,10 +42,12 @@ export class HomePage {
     private ngZone: NgZone) {
     utilsService.events(this.router.url).subscribe(item => {
       if (item === "enter") {
-        this.slider.startAutoplay();
+        this.topSlider.startAutoplay();
+        this.middleSlider.startAutoplay();
       }
       if (item === "leave") {
-        this.slider.stopAutoplay();
+        this.topSlider.stopAutoplay();
+        this.middleSlider.stopAutoplay();
       }
     });
   }
@@ -70,11 +73,13 @@ export class HomePage {
   }
 
   ionViewWillLeave() {
-    this.slider.stopAutoplay();
+    this.topSlider.stopAutoplay();
+    this.middleSlider.stopAutoplay();
   }
 
   ionViewDidEnter() {
-    this.slider.startAutoplay();
+    this.topSlider.startAutoplay();
+    this.middleSlider.startAutoplay();
   }
 
   gotoView(keyword: string) {
