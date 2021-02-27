@@ -28,7 +28,7 @@ export class OrderPage {
     private alertController: AlertController) {
     utilsService.events(this.router.url).subscribe(item => {
       if (item == "enter") {
-        this.ionViewWillEnter();
+        //this.refresh();
       }
     });
   }
@@ -87,7 +87,8 @@ export class OrderPage {
               order.comment = alertData.refund;
               apiService.orderClient.update(order).then(order => {
                 console.log(order);
-                this.ionViewWillEnter();
+                //this.ionViewWillEnter();
+                this.refresh();
               }).catch(err => {
                 utilsService.alert(JSON.stringify(err));
               });
@@ -113,7 +114,8 @@ export class OrderPage {
       utilsService.confirm('确认收货后，卖家将收到付款.', () => {
         order.status = '待评价';
         apiService.orderClient.update(order).then(order => {
-          this.ionViewWillEnter();
+          //this.ionViewWillEnter();
+          this.refresh();
         }).catch(err => {
           utilsService.alert(JSON.stringify(err));
         });
@@ -124,7 +126,8 @@ export class OrderPage {
   delete(order: Order) {
     utilsService.confirm('确认删除此订单？', () => {
       apiService.orderClient.delete(order).then(() => {
-        this.ionViewWillEnter();
+        //this.ionViewWillEnter();
+        this.refresh();
       }).catch(err => {
         utilsService.alert(JSON.stringify(err));
       })
