@@ -28,7 +28,7 @@ export class OrderPage {
     private alertController: AlertController) {
     utilsService.events(this.router.url).subscribe(item => {
       if (item == "enter") {
-        //this.refresh();
+        this.refresh();
       }
     });
   }
