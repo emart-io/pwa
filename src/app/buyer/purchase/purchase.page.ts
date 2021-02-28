@@ -160,8 +160,7 @@ export class PurchasePage {
         this.order.payInfo.payResult = bizContent.out_trade_no;
         utilsService.storage.set('order', this.order);
         // console.log(url);
-        // location.assign(url);
-        self.location.href = url;
+        location.assign(url);
       }).catch(err => {
         utilsService.alert(err.message)
       })
@@ -181,8 +180,7 @@ export class PurchasePage {
         // for query
         this.order.payInfo.payResult = pm.kvMap.get('out_trade_no');
         utilsService.storage.set('order', this.order);
-        // location.assign(url);
-        self.location.href = url;
+        location.assign(url);
         //this.router.navigateByUrl('/verify');
       }).catch(err => {
         utilsService.alert(JSON.stringify(err));
