@@ -116,38 +116,4 @@ export class HomePage {
       });
     });
   }
-
-  getLocation1() {
-    /*navigator.geolocation.getCurrentPosition(
-      resp => {
-        AMap.convertFrom(resp.coords.longitude + "," + resp.coords.latitude, "gps", (status, result) => {
-          if (status == "complete") {
-            const positionInfo = [result.locations[0].P + '', result.locations[0].O + ''];
-
-            AMap.service('AMap.Geocoder', () => {
-              const geocoder = new AMap.Geocoder();
-              geocoder.getAddress(positionInfo, (status, result) => {
-                if (status === 'complete' && result.info === 'OK') {
-                  this.ngZone.run(() => {// refresh view
-                    utilsService.location = result.regeocode;
-                    this.city = utilsService.location.addressComponent.city + utilsService.location.addressComponent.district;
-                    if (utilsService.location.addressComponent.city == '') {
-                      this.city = utilsService.location.addressComponent.province + utilsService.location.addressComponent.district;
-                    }
-                  });
-                } else {
-                  console.log('获取地址失败', result, status);
-                }
-              });
-            });
-          } else {
-            utilsService.alert("坐标转换失败," + status + "/" + result);
-          }
-        });
-      }, err => {
-        console.log(err);
-        utilsService.alert(JSON.stringify(err));
-      }
-    );*/
-  }
 }
