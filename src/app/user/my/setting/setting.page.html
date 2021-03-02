@@ -23,24 +23,18 @@
   </ion-item>
   <ion-item>
     <ion-icon slot="start" name="bonfire"></ion-icon>
-    <div>
-      <ion-label>签名</ion-label>
-      <ion-input type="text" [(ngModel)]="user.signature"></ion-input>
-    </div>
+    <ion-label position="floating">签名</ion-label>
+    <ion-input type="text" [(ngModel)]="user.signature"></ion-input>
   </ion-item>
   <ion-item>
     <ion-icon slot="start" name="body"></ion-icon>
-    <div>
-      <ion-label>昵称</ion-label>
-      <ion-input type="text" [(ngModel)]="user.name"></ion-input>
-    </div>
+    <ion-label position="floating">昵称</ion-label>
+    <ion-input type="text" [(ngModel)]="user.name"></ion-input>
   </ion-item>
   <ion-item>
     <ion-icon slot="start" name="call"></ion-icon>
-    <div>
-      <ion-label>电话</ion-label>
-      <ion-input type="text" [(ngModel)]="user.telephone" readonly></ion-input>
-    </div>
+    <ion-label position="floating">电话</ion-label>
+    <ion-input type="text" [(ngModel)]="user.telephone" readonly></ion-input>
   </ion-item>
 </ion-content>
 <!-- <ion-button (click)="save()">保存</ion-button> -->
