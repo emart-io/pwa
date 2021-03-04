@@ -42,11 +42,11 @@ export class AppComponent {
       });
 
       // TODO:  普通添加到桌面，也需要避免提示
-      this.eventManager.addGlobalEventListener('window', 'beforeinstallprompt', (event) => {
-        if (!this.alreadyPopover()) {
-          this.popoverPWA();
-        }
-      });
+      // this.eventManager.addGlobalEventListener('window', 'beforeinstallprompt', (event) => {
+      //   if (!this.alreadyPopover()) {
+      //     this.popoverPWA();
+      //   }
+      // });
 
       if (navigator.userAgent.toLowerCase().includes('micromessenger')) {
         utilsService.alert('请点击右上角->在浏览器打开');
@@ -71,9 +71,9 @@ export class AppComponent {
         }, 3000);
       }
 
-      if (this.platform.is('iphone') && (!navigator['standalone']) && !this.alreadyPopover()) {
-        this.popoverPWA();
-      }
+      // if (this.platform.is('iphone') && (!navigator['standalone']) && !this.alreadyPopover()) {
+      //   this.popoverPWA();
+      // }
     });
   }
 
