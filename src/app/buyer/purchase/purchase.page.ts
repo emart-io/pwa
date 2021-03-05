@@ -160,7 +160,7 @@ export class PurchasePage {
         this.order.payInfo.payResult = bizContent.out_trade_no;
         utilsService.storage.set('order', this.order);
         // console.log(url);
-        location.assign(url);
+        location.href = url;
       }).catch(err => {
         utilsService.alert(err.message)
       })
@@ -169,22 +169,46 @@ export class PurchasePage {
       pm.url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
       pm.kvMap.set('body', this.order.snapshot.title + '-订单费用');
       pm.kvMap.set('notify_url', 'www.yourserver.com/wxpayNotify');
-      pm.kvMap.set('trade_type', 'MWEB');
+      //pm.kvMap.set('trade_type', 'MWEB');
       pm.kvMap.set('total_fee', this.order.amount + '');
       pm.kvMap.set('out_trade_no', 'daji-' + new Date().getTime());
-
-      apiService.accountClient.wechatPay(pm).then(response => {
-        // redirect_url is unstable
-        let url = response.kvMap.get('mweb_url'); //+ '&redirect_url=' + encodeURIComponent('https://iyou.city/purchase');
-        console.log(url);
-        // for query
-        this.order.payInfo.payResult = pm.kvMap.get('out_trade_no');
-        utilsService.storage.set('order', this.order);
-        location.assign(url);
-        this.router.navigateByUrl('/verify');
-      }).catch(err => {
-        utilsService.alert(JSON.stringify(err));
-      })
+      if (utilsService.isInWechatBrowser) {
+        pm.kvMap.set('trade_type', 'JSAPI');
+        apiService.accountClient.wechatJSPay(pm).then(response => {
+          // @ts-ignore
+          WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', {
+            "appId": response.kvMap['appId'],     //公众号ID，由商户传入     
+            "timeStamp": response.kvMap['timeStamp'],         //时间戳，自1970年以来的秒数     
+            "nonceStr": response.kvMap['nonceStr'], //随机串     
+            "package": response.kvMap['package'],
+            "signType": response.kvMap['signType'],         //微信签名方式：     
+            "paySign": response.kvMap['paySign'] //微信签名 
+          }, (res) => {
+            if (res.err_msg == "get_brand_wcpay_request:ok") {
+              // 使用以上方式判断前端返回,微信团队郑重提示：
+              //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+              this.commitOrder();
+              utilsService.alert('支付成功');
+            }
+          });
+        }).catch(err => {
+          utilsService.alert(JSON.stringify(err));
+        })
+      } else {
+        pm.kvMap.set('trade_type', 'MWEB');
+        apiService.accountClient.wechatHtml5Pay(pm).then(response => {
+          // redirect_url is unstable
+          let url = response.kvMap.get('mweb_url'); //+ '&redirect_url=' + encodeURIComponent('https://iyou.city/purchase');
+          console.log(url);
+          // for query
+          this.order.payInfo.payResult = pm.kvMap.get('out_trade_no');
+          utilsService.storage.set('order', this.order);
+          location.href = url;
+        }).catch(err => {
+          utilsService.alert(JSON.stringify(err));
+        })
+      }
     }
   }
 
@@ -227,7 +251,7 @@ export class PurchasePage {
     let pm = new PayMap();
     pm.url = 'https://api.mch.weixin.qq.com/pay/orderquery';
     pm.kvMap.set('out_trade_no', this.order.payInfo.payResult);
-    apiService.accountClient.wechatPay(pm).then(response => {
+    apiService.accountClient.wechatHtml5Pay(pm).then(response => {
       if (response.kvMap.get('trade_state') == 'SUCCESS') {
         this.commitOrder();
       } else {

@@ -996,8 +996,8 @@ proto.zbay.AccountsPromiseClient.prototype.alipay =
  *   !proto.zbay.PayMap,
  *   !proto.zbay.PayMap>}
  */
-const methodDescriptor_Accounts_WechatPay = new grpc.web.MethodDescriptor(
-  '/zbay.Accounts/WechatPay',
+const methodDescriptor_Accounts_WechatHtml5Pay = new grpc.web.MethodDescriptor(
+  '/zbay.Accounts/WechatHtml5Pay',
   grpc.web.MethodType.UNARY,
   proto.zbay.PayMap,
   proto.zbay.PayMap,
@@ -1018,7 +1018,7 @@ const methodDescriptor_Accounts_WechatPay = new grpc.web.MethodDescriptor(
  *   !proto.zbay.PayMap,
  *   !proto.zbay.PayMap>}
  */
-const methodInfo_Accounts_WechatPay = new grpc.web.AbstractClientBase.MethodInfo(
+const methodInfo_Accounts_WechatHtml5Pay = new grpc.web.AbstractClientBase.MethodInfo(
   proto.zbay.PayMap,
   /**
    * @param {!proto.zbay.PayMap} request
@@ -1041,13 +1041,13 @@ const methodInfo_Accounts_WechatPay = new grpc.web.AbstractClientBase.MethodInfo
  * @return {!grpc.web.ClientReadableStream<!proto.zbay.PayMap>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.zbay.AccountsClient.prototype.wechatPay =
+proto.zbay.AccountsClient.prototype.wechatHtml5Pay =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/zbay.Accounts/WechatPay',
+      '/zbay.Accounts/WechatHtml5Pay',
       request,
       metadata || {},
-      methodDescriptor_Accounts_WechatPay,
+      methodDescriptor_Accounts_WechatHtml5Pay,
       callback);
 };
 
@@ -1060,13 +1060,93 @@ proto.zbay.AccountsClient.prototype.wechatPay =
  * @return {!Promise<!proto.zbay.PayMap>}
  *     A native promise that resolves to the response
  */
-proto.zbay.AccountsPromiseClient.prototype.wechatPay =
+proto.zbay.AccountsPromiseClient.prototype.wechatHtml5Pay =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/zbay.Accounts/WechatPay',
+      '/zbay.Accounts/WechatHtml5Pay',
       request,
       metadata || {},
-      methodDescriptor_Accounts_WechatPay);
+      methodDescriptor_Accounts_WechatHtml5Pay);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.zbay.PayMap,
+ *   !proto.zbay.PayMap>}
+ */
+const methodDescriptor_Accounts_WechatJSPay = new grpc.web.MethodDescriptor(
+  '/zbay.Accounts/WechatJSPay',
+  grpc.web.MethodType.UNARY,
+  proto.zbay.PayMap,
+  proto.zbay.PayMap,
+  /**
+   * @param {!proto.zbay.PayMap} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.PayMap.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.zbay.PayMap,
+ *   !proto.zbay.PayMap>}
+ */
+const methodInfo_Accounts_WechatJSPay = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.zbay.PayMap,
+  /**
+   * @param {!proto.zbay.PayMap} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.zbay.PayMap.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.zbay.PayMap} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.zbay.PayMap)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.zbay.PayMap>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.zbay.AccountsClient.prototype.wechatJSPay =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/zbay.Accounts/WechatJSPay',
+      request,
+      metadata || {},
+      methodDescriptor_Accounts_WechatJSPay,
+      callback);
+};
+
+
+/**
+ * @param {!proto.zbay.PayMap} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.zbay.PayMap>}
+ *     A native promise that resolves to the response
+ */
+proto.zbay.AccountsPromiseClient.prototype.wechatJSPay =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/zbay.Accounts/WechatJSPay',
+      request,
+      metadata || {},
+      methodDescriptor_Accounts_WechatJSPay);
 };
 
 

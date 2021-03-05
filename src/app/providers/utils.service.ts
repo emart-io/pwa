@@ -10,6 +10,7 @@ import { Injectable, Injector, EventEmitter } from '@angular/core';
 export class UtilsService {
   injector: Injector;
   destination: Address;
+  isInWechatBrowser = false;
   storage = new MesssageStorage();
 
   // https://lbs.amap.com/api/javascript-api/reference/lnglat-to-address#regeocode

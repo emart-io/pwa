@@ -92,7 +92,14 @@ export class AccountsClient {
                response: PayMap) => void
   ): grpcWeb.ClientReadableStream<PayMap>;
 
-  wechatPay(
+  wechatHtml5Pay(
+    request: PayMap,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: PayMap) => void
+  ): grpcWeb.ClientReadableStream<PayMap>;
+
+  wechatJSPay(
     request: PayMap,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
@@ -168,7 +175,12 @@ export class AccountsPromiseClient {
     metadata?: grpcWeb.Metadata
   ): Promise<PayMap>;
 
-  wechatPay(
+  wechatHtml5Pay(
+    request: PayMap,
+    metadata?: grpcWeb.Metadata
+  ): Promise<PayMap>;
+
+  wechatJSPay(
     request: PayMap,
     metadata?: grpcWeb.Metadata
   ): Promise<PayMap>;
