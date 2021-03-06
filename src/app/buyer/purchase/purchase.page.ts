@@ -21,10 +21,14 @@ export class PurchasePage {
     private router: Router,
     private httpClient: HttpClient,
     private actionSheetController: ActionSheetController) {
-    if (!utilsService.paraMap['purchase']) {
-      this.order = utilsService.storage.get('order', Order);
-    } else {
+    if (utilsService.paraMap['purchase']) {
       this.order = utilsService.paraMap['purchase'];
+    } else if (utilsService.storage.get('order', Order)) {
+      this.order = utilsService.storage.get('order', Order);
+    }
+    if (!this.order) {
+      this.router.navigateByUrl('/');
+    } else {
       this.order.payInfo = new PayInfo();
       this.order.payInfo.type = 'wechat';
     }
@@ -133,6 +137,9 @@ export class PurchasePage {
     if (this.order.userId == this.order.snapshot.ownerId) {
       return utilsService.alert('请勿自我买卖');
     }
+    if (utilsService.isInWechatBrowser) {
+      return utilsService.alert('请点击右上角•••->在浏览器中打开后，再继续支付', '支付提示');
+    }
     if (this.order.payInfo.type == 'alipay') {
       let sr = new PayMap();
       let bizContent = {
@@ -174,6 +181,7 @@ export class PurchasePage {
       pm.kvMap.set('out_trade_no', 'daji-' + new Date().getTime());
       if (utilsService.isInWechatBrowser) {
         pm.kvMap.set('trade_type', 'JSAPI');
+        // 需要非个人的公众号才能获取openid
         pm.kvMap.set('openid', '**************');
         apiService.accountClient.wechatJSPay(pm).then(response => {
           // @ts-ignore
