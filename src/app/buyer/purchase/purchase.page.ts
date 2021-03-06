@@ -21,16 +21,12 @@ export class PurchasePage {
     private router: Router,
     private httpClient: HttpClient,
     private actionSheetController: ActionSheetController) {
-    if (utilsService.paraMap['purchase']) {
-      this.order = utilsService.paraMap['purchase'];
-    } else if (utilsService.storage.get('order', Order)) {
+    if (!utilsService.paraMap['purchase']) {
       this.order = utilsService.storage.get('order', Order);
-    }
-    if (!this.order) {
-      this.router.navigateByUrl('/');
-    }
-    if (utilsService.isInWechatBrowser) {
-      utilsService.alert('请在浏览器中打开，享受更多支付体验', '小程序功能有限');
+    } else {
+      this.order = utilsService.paraMap['purchase'];
+      this.order.payInfo = new PayInfo();
+      this.order.payInfo.type = 'wechat';
     }
   }
 
@@ -78,7 +74,7 @@ export class PurchasePage {
             this.commitOrder();
           } else {
             utilsService.toast('订单未支付');
-            this.router.navigateByUrl('/tabs/home');
+            this.router.navigateByUrl('/');
           }
         });
       }).catch(err => {
@@ -96,6 +92,9 @@ export class PurchasePage {
       this.order = utilsService.paraMap['purchase'];
       this.order.payInfo = new PayInfo();
       this.order.payInfo.type = 'wechat';
+    }
+    if (!this.order) {
+      this.router.navigateByUrl('/');
     }
 
     if (!utilsService.getUser()) {
@@ -239,6 +238,7 @@ export class PurchasePage {
           utilsService.alert(JSON.stringify(err));
         })
       }
+      utilsService.storage.set('order', null);
       this.router.navigateByUrl('/tabs/order');
     }).catch(err => {
       utilsService.alert(JSON.stringify(err));
@@ -262,7 +262,7 @@ export class PurchasePage {
         this.commitOrder();
       } else {
         utilsService.toast('订单未支付');
-        this.router.navigateByUrl('/tabs/home');
+        this.router.navigateByUrl('/');
       }
     }).catch(err => {
       utilsService.alert(JSON.stringify(err));

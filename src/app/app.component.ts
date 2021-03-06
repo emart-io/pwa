@@ -113,7 +113,6 @@ export class AppComponent {
     const popover = await this.injector.get(PopoverController).create({
       component: PwaComponent,
       backdropDismiss: false,
-      translucent: true,
       cssClass: 'bottom-sheet-popover-pwa',
     });
     await popover.present();
