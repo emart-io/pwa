@@ -51,6 +51,7 @@ export class AppComponent {
       if (navigator.userAgent.toLowerCase().includes('micromessenger')) {
         utilsService.isInWechatBrowser = true;
         //utilsService.alert('请点击右上角•••->在浏览器中打开', '.', '最佳体验提示');
+        this.popoverPWA();
       }
 
       /* this.eventManager.addGlobalEventListener('window', 'appinstalled', async (event) => {
@@ -112,6 +113,7 @@ export class AppComponent {
     const popover = await this.injector.get(PopoverController).create({
       component: PwaComponent,
       backdropDismiss: false,
+      translucent: true,
       cssClass: 'bottom-sheet-popover-pwa',
     });
     await popover.present();

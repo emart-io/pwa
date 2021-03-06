@@ -17,7 +17,7 @@ export class PreferencePage implements OnInit {
 
   ngOnInit(): void {
     const codeWriter = new BrowserQRCodeSvgWriter();
-    codeWriter.writeToDom('#qr-code', "https://iyou.city", 150, 150)
+    codeWriter.writeToDom('#qr-code', "https://iyou.city", 160, 160)
   }
 
   ionViewWillEnter() {

@@ -5,16 +5,16 @@
   </div>
   <div style="margin-left: 20px;margin-top: 20px;">
     <div *ngIf="isAndroid">
-      <img src="svg/logo-android.svg" style="height: 31px;width: auto;margin: 0 30px -5px 0;" />
-      为提升体验，不妨试试添加到主屏幕
+      <img src="assets/icons/android.jpeg" style="height: 30px;width: auto;margin: 0 30px -5px 0;" />
+      请点击右上角->在浏览器中打开
     </div>
     <div *ngIf="isIPhone">
-      <img src="svg/logo-apple.svg" style="height: 31px;width: auto;margin: 0 30px -5px 0;" />
-      为提升体验，不妨试试添加到主屏幕
+      <img src="svg/logo-apple.svg" style="height: 30px;width: auto;margin: 0 30px -5px 0;" />
+      请点击右上角->在Safari中打开
     </div>
   </div>
   <div style="position: absolute;top: 10px;right: 10px;" (click)="close()">
-    <ion-icon name="close-circle-outline"></ion-icon>
+    <!-- <ion-icon name="close-circle-outline"></ion-icon> -->
     <!-- <ion-icon name="close" slot="end" (click)="close()" size="small"></ion-icon> -->
   </div>
 </div>
