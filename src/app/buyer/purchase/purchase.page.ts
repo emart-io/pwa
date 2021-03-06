@@ -174,6 +174,7 @@ export class PurchasePage {
       pm.kvMap.set('out_trade_no', 'daji-' + new Date().getTime());
       if (utilsService.isInWechatBrowser) {
         pm.kvMap.set('trade_type', 'JSAPI');
+        pm.kvMap.set('openid', '**************');
         apiService.accountClient.wechatJSPay(pm).then(response => {
           // @ts-ignore
           WeixinJSBridge.invoke(

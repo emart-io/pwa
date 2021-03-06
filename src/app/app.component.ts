@@ -50,7 +50,7 @@ export class AppComponent {
 
       if (navigator.userAgent.toLowerCase().includes('micromessenger')) {
         utilsService.isInWechatBrowser = true;
-        utilsService.alert('请点击右上角->在浏览器打开');
+        utilsService.alert('请点击右上角•••->在Safari中打开', '提示', "为获得最佳用户体验");
       }
 
       /* this.eventManager.addGlobalEventListener('window', 'appinstalled', async (event) => {

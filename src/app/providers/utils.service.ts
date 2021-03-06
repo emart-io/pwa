@@ -49,8 +49,9 @@ export class UtilsService {
     return value.substring(0, value.indexOf(".") + 3);
   }
 
-  async alert(content: string, title: string = '提示') {
+  async alert(content: string, title: string = '提示', header: string = '') {
     const alert = await this.injector.get(AlertController).create({
+      header: header,
       subHeader: title,
       backdropDismiss: false,
       message: content,
