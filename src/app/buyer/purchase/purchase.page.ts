@@ -28,9 +28,9 @@ export class PurchasePage {
     }
     if (!this.order) {
       this.router.navigateByUrl('/');
-    } else {
-      this.order.payInfo = new PayInfo();
-      this.order.payInfo.type = 'wechat';
+    }
+    if (utilsService.isInWechatBrowser) {
+      utilsService.alert('请在浏览器中打开，享受更多支付体验', '小程序功能有限');
     }
   }
 
@@ -136,9 +136,6 @@ export class PurchasePage {
     }
     if (this.order.userId == this.order.snapshot.ownerId) {
       return utilsService.alert('请勿自我买卖');
-    }
-    if (utilsService.isInWechatBrowser) {
-      return utilsService.alert('请点击右上角•••->在浏览器中打开后，再继续支付', '支付提示');
     }
     if (this.order.payInfo.type == 'alipay') {
       let sr = new PayMap();
