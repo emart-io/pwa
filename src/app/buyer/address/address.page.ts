@@ -50,6 +50,14 @@ export class AddressPage {
   selectDestionation(address: Address) {
     utilsService.destination = address;
     this.closeAddress();
+    this.addresses.forEach(addr => {
+      if (addr == address) {
+        addr.default = true;
+      } else {
+        addr.default = false;
+      }
+      apiService.addressClient.update(addr)
+    });
   }
 
   touchstart(item: Address) {
