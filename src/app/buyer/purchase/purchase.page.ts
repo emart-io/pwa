@@ -88,10 +88,6 @@ export class PurchasePage {
     if (!utilsService.paraMap['purchase']) {
       this.order = utilsService.storage.get('order', Order);
       return this.verify();
-    } else {
-      this.order = utilsService.paraMap['purchase'];
-      this.order.payInfo = new PayInfo();
-      this.order.payInfo.type = 'wechat';
     }
     if (!this.order) {
       this.router.navigateByUrl('/');
