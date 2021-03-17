@@ -22,7 +22,7 @@ class InterceptedStream {
         if (eventType == 'data') {
             const newCallback = (response) => {
                 //response.setMessage('[Intcpt Resp1]'+response.getMessage());
-                console.log(response);
+                //console.log(response);
                 callback(response);
             };
             this.stream.on(eventType, newCallback);
